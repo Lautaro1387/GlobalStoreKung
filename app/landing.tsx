@@ -15,7 +15,7 @@ export default function Landing() {
             </div>
             <div className="flex flex-col lg:flex-row px-10 h-screen">
               <div className="w-full lg:w-1/2 py-20 sm:py-40 md:py-20 md:pr-20 lg:pr-20">
-                <h1 className="text-2x1 text-center md:text-6xl font-bold sm:text-3xl mb-4">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
+                <h1 className="text-3x1 text-center md:text-6xl font-bold sm:text-3xl mb-4">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
                 <p className="md:text-xl text-center text-2x1 text-lg pb-5">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
                 <button className="hover:bg-slate-700 block mx-auto mb:items-center mb:justify-end rounded-md text-2x1 bg-slate-950 text-gray-100 px-4 py-2 border-2 border-neutral-800"> Empieza ahora </button>
               </div>
@@ -37,14 +37,14 @@ export default function Landing() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center font-bold text-3xl py-40 pb-20 px-20 text-center">
-              <h1 className='flex'>
+          <div className="flex justify-center items-center font-bold text-3xl py-40 pb-20 px-10 text-center">
+              <h1>
                 Mirá cómo crece tu emprendimiento. 
                 <br />   
                 Te ayudamos en todo.
               </h1>
           </div>
-          <div className="flex">
+          <div className="flex text-center">
             <div className="flex flex-col w-full md:w-1/3 justify-center items-center">
                 <img
                     src="/shop.svg"
