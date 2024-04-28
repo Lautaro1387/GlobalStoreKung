@@ -13,19 +13,26 @@ export default function Landing() {
                 height={300}
                 />  
             </div>
-            <div className="flex px-20 h-screen">
-              <div className="w-1/2 py-40">
-                <h1 className="text-2x1 font-bold mb-4 text-6xl">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
-                <p className="text-2x1 text-lg pb-5">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
-                <button className="hover:bg-slate-700 rounded-md text-2x1 bg-slate-950 text-gray-100 px-4 py-2 border-2 border-neutral-800">Empieza ahora</button>
+            <div className="flex flex-col lg:flex-row px-20 h-screen">
+              <div className="w-full lg:w-1/2 py-24 sm:py-40 md:py-20 md:pr-20 lg:pr-20">
+                <h1 className="text-2x1 md:text-6xl font-bold sm:text-3xl mb-4">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
+                <p className="md:text-xl text-2x1 text-lg pb-5">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
+                <button className="hover:bg-slate-700 sm:block sm:mx-auto sm:text-center mb:items-center mb:justify-end rounded-md text-2x1 bg-slate-950 text-gray-100 px-4 py-2 border-2 border-neutral-800"> Empieza ahora </button>
               </div>
-              <div className="flex px-10 w-1/2 justify-center items-center">
+              <div className="hidden lg:block w-1/2 px-10">
                 <img
-                className="pb-10"
-                src="/landing_page_2.png"
-                alt="gif"
-                width={800}
-                height={100}
+                  className="max-w-full"
+                  src="/landing_computer.png"
+                  alt="gif"
+                />
+              </div>
+              <div className="w-full lg:hidden">
+                <img
+                  className="max-w-full"
+                  src="/landing_phone.png"
+                  width={1000}
+                  height={800}
+                  alt="gif"
                 />
               </div>
             </div>
