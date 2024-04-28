@@ -14,7 +14,7 @@ export default function Landing() {
                 />  
             </div>
             <div className="flex px-20 h-screen">
-              <div className="w-1/2">
+              <div className="w-1/2 py-40">
                 <h1 className="text-2x1 font-bold mb-4 text-6xl">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
                 <p className="text-2x1 text-lg pb-5">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
                 <button className="hover:bg-slate-700 rounded-md text-2x1 bg-slate-950 text-gray-100 px-4 py-2 border-2 border-neutral-800">Empieza ahora</button>
