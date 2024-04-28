@@ -24,7 +24,7 @@ export default function Landing() {
                 className="pb-10"
                 src="/landing_page_2.png"
                 alt="gif"
-                width={500}
+                width={800}
                 height={100}
                 />
               </div>
