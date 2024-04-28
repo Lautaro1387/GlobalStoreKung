@@ -17,6 +17,12 @@ const config: Config = {
         'custom-bg': '#0097B2',
       }
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    }
   },
   plugins: [],
 };
