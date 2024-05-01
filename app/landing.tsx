@@ -3,47 +3,43 @@ import React from 'react';
 export default function Landing() {
     return(
         <main className="flex flex-col items-right justify-between">
-          <div className="bg-custom-bg py-4">
+          <div className="bg-custom-bg py-3 justify-between items-center px-3">
             <div className='flex'>
-              <div className='px-5'>
                 <img
                   className="relative"
                   src="/logo_final.png"
                   alt="Logo"
                   width={210}
                   height={300}
-                  />  
-              </div>
-              <div>
-                <button className=' justify-end'>
-                  <img src="/dark_mode.svg" alt="Dark Mode"
-                    height={200}
-                    width={40}
                   />
-                </button>
+                <button className='ml-auto pb-1'>
+                  <img src="/dark_mode.svg" alt="Dark Mode"
+                    width={40}
+                    height={200}
+                    />
+                </button>          
               </div>
-            </div>
-            <div className="flex flex-col lg:flex-row px-10 h-screen">
-              <div className="w-full lg:w-1/2 py-20 sm:py-40 md:py-20 md:pr-20 lg:pr-20">
-                <h1 className="text-3x1 text-center md:text-6xl font-bold sm:text-3xl mb-4">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
-                <p className="md:text-xl text-center text-2x1 text-lg pb-5">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
+            <div className="flex flex-col lg:flex-row h-screen">
+              <div className="w-full py-10 md:py-20 md:pr-20 lg:pr-20">
+                <h1 className="text-4xl text-center px-4 md:text-6xl font-bold sm:text-4xl mb-6">Creá tu tienda online en minutos y vendé a todo el mundo!</h1>
+                <p className="md:text-2xl text-center px-2 text-lg pb-8">Podes crear promos, descuentos, aceptá pagos online y publicitá tu tienda. ¡Todo lo necesario para explotar tus ventas!</p>
                 <button className="hover:bg-slate-700 block mx-auto mb:items-center mb:justify-end rounded-md text-2x1 bg-slate-950 text-gray-100 px-4 py-2 border-2 border-neutral-800"> Empieza ahora </button>
-              </div>
-              <div className="hidden lg:block w-1/2 px-10">
+                </div>
+                <div className="hidden lg:flex w-1/2 px-10 bg-custom-bg justify-center items-center">
                 <img
                   className="max-w-full"
                   src="/landing_computer.png"
                   alt="gif"
-                />
-              </div>
-              <div className="w-full lg:hidden">
+                  width={100}
+                  height={100}
+                  />
+                  </div>
+                  <div className="w-full lg:hidden h-screen bg-custom-bg flex justify-center items-center">
                 <img
-                  className="max-w-full"
+                  className="px-6 h-full "
                   src="/landing_phone.png"
-                  width={500}
-                  height={500}
                   alt="gif"
-                />
+                  />
               </div>
             </div>
           </div>
@@ -132,10 +128,21 @@ export default function Landing() {
               <h1 className="font-bold text-slate-100 text-center px-10 py-10 text-2xl">UN UNICO PAGO A TAN SOLO USD300 CON TODO INCLUIDO</h1>
             </div>
           </div>
-          <div className="flex justify-center items-center font-bold text-2xl pb-20 px-10 text-center">
-              <h1>
+          <div className="flex flex-col justify-center items-center text-2xl pb-20 px-10">
+              <h1 className='font-bold pb-10 text-3xl text-center'>
                 Preguntas frecuentes
               </h1>
+              <h1 className='font-bold'>
+                La puedo manejar desde cualquier dispositivo?
+              </h1>
+              <p className='py-2 pb-10'> Por supuesto que si, podras manejar tu pagina tanto por tu celular, como una tablet o computadora</p>
+              <h1 className='font-bold'>
+                Puedo aceptar pagos online?
+              </h1>
+              <p className='py-2 pb-10'>Claro que si, tenemos para aceptar pagos con Mercado Pago, PayPal, Prex y Itau</p>
+              <h1 className='font-bold'>Debo pagar alguna comision por las ventas?</h1>
+              <p className='py-2 pb-10'>No, no cobramos ningun tipo de comision ni pagaras abono mensual</p>
+              <p className='mx-auto block'>¿Te quedan consultas? </p> <a className='font-bold text-gray-700 justify-end'>Estamos para ayudarte </a>
           </div>
     </main>
     )
