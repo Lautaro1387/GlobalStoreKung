@@ -139,7 +139,7 @@ export default function Landing() {
               <h1 className="font-bold text-slate-100 text-center px-10 py-10 text-2xl">UN UNICO PAGO, A TAN SOLO US$ 200 CON TODO INCLUIDO</h1>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center text-2xl pb-30 px-4">
+          <div className="flex flex-col justify-center items-center text-2xl pb-30">
               <h1 className='font-bold pb-16 text-3xl text-center'>
                 Preguntas frecuentes
               </h1>
@@ -164,17 +164,11 @@ export default function Landing() {
               <p className='py-2 pb-10 text-lg'>No, no cobramos ningun tipo de comision ni pagaras abono mensual</p>
               
               <p className='mx-auto block'>¿Te quedan consultas? </p> <a className='font-bold text-gray-700 justify-end pb-20'>Estamos para ayudarte </a>
-              <footer className='relative flex justify-center bg-custom-bg max-w-full pb-60 px-80'>
-                <ul>
-                  <li><a href="https://www.instagram.com/globalstorekung/">
-                      <img src="/instagram.svg" alt="Logo" width={50}/>
-                    </a>
-                  </li>
-                  <li><a href="https://www.tiktok.com/globalstorekung/">
-                      <img src="/tiktok.svg" alt="Logo" width={50}/>
-                    </a>
-                  </li>
-                </ul>
+              <footer>
+                <div className='wave'></div>
+                <div className=''></div>
+                <div className=''></div>
+                <div className=''></div>
               </footer>
           </div>
     </main>
