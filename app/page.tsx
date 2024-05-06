@@ -1,3 +1,5 @@
+"use client"
+
 import LandingHome from "./landing/LandingHome";
 import React from "react";
 

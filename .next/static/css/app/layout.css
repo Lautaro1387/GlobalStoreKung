@@ -615,14 +615,14 @@ video {
 .max-w-full {
   max-width: 100%;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .flex-col {
   flex-direction: column;
 }
 .flex-wrap {
   flex-wrap: wrap;
-}
-.items-end {
-  align-items: flex-end;
 }
 .items-center {
   align-items: center;
@@ -746,9 +746,6 @@ video {
 }
 .text-center {
   text-align: center;
-}
-.text-right {
-  text-align: right;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -920,6 +917,11 @@ footer .wave.wave4 {
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 @media (min-width: 640px) {
 
   .sm\:py-40 {
@@ -968,12 +970,12 @@ footer .wave.wave4 {
     justify-self: start;
   }
 
-  .md\:border-e-4 {
-    border-inline-end-width: 4px;
+  .md\:border-e-2 {
+    border-inline-end-width: 2px;
   }
 
-  .md\:border-s-4 {
-    border-inline-start-width: 4px;
+  .md\:border-s-2 {
+    border-inline-start-width: 2px;
   }
 
   .md\:p-20 {
@@ -1002,6 +1004,11 @@ footer .wave.wave4 {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .md\:px-96 {
+    padding-left: 24rem;
+    padding-right: 24rem;
   }
 
   .md\:py-16 {
@@ -1044,6 +1051,10 @@ footer .wave.wave4 {
 
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-center {
+    text-align: center;
   }
 
   .md\:text-2xl {

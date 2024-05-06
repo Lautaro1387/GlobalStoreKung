@@ -1,6 +1,6 @@
 import React from 'react';
 import LandingFooter from './LandingFooter';
-import LandingQuestions from './LandingQuestion';
+import LandingQuestions from './LandingQuestions';
 import LandingHeader from './LandingHeader';
 
 export default function LandingHome() {
@@ -15,7 +15,7 @@ export default function LandingHome() {
               </h1>
           </div>
           <div className="flex flex-wrap">
-          <div className="w-full md:w-1/3 py-10 md:border-e-4">
+          <div className="w-full md:w-1/3 py-10 md:border-e-2">
             <div className="flex flex-col items-center">
               <img
                 src="/icons/shop.svg"
@@ -39,7 +39,7 @@ export default function LandingHome() {
               <p className="text-center">Solo nos indicas qué productos necesitas y nosotros lo haremos!</p>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4 py-10 md:border-s-4">
+          <div className="w-full md:w-1/3 px-4 py-10 md:border-s-2">
             <div className="flex flex-col items-center">
               <img
                 src="/icons/rocket.svg"
