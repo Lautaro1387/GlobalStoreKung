@@ -2,11 +2,13 @@
 
 import LandingHome from "./landing/LandingHome";
 import React from "react";
+import Link from 'next/image'
+
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <>
       <LandingHome></LandingHome>
-    </React.Fragment>
+    </>
   );
 }

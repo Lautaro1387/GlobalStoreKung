@@ -1,5 +1,8 @@
 import React from "react";
-import { useState } from "react"
+import { useState } from "react";
+import Image from 'next/image';
+
+
 
 export default function LandingQuestions() {
 
@@ -36,7 +39,7 @@ export default function LandingQuestions() {
           <h1 className='px-4 font-bold text-lg'>
             ¿La puedo manejar desde cualquier dispositivo?
           </h1>
-          <img src={imgEnable} alt="" width={50} />
+          <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
         <p className={`px-4 py-2 pb-10 text-lg md:text-left ${textEnable1}`}> Por supuesto que si, podras manejar tu pagina tanto por tu celular, como una tablet o computadora</p>
 
@@ -44,13 +47,13 @@ export default function LandingQuestions() {
           <h1 className='px-4 font-bold text-left text-lg w-full'>
             ¿Se aceptan pagos online?
           </h1>
-          <img src={imgEnable} alt="" width={50} />
+          <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
         <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable2}`}>Claro que si, tenemos para aceptar pagos con Mercado Pago, PayPal, Prex y Itau</p>
 
         <div className="flex items-center text-xl border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick3}>
             <h1 className='px-4 font-bold text-left text-lg w-full'>¿Debo pagar alguna comision por las ventas?</h1>
-            <img src={imgEnable} alt="" width={50} />
+            <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
           <p className={`px-4 py-2 pb-20 text-lg  md:text-left ${textEnable3}`}>No, no cobramos ningun tipo de comision ni pagaras abono mensual</p>
         <div className="py-10"></div>

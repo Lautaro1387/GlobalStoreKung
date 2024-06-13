@@ -2,6 +2,8 @@ import React from 'react';
 import LandingFooter from './LandingFooter';
 import LandingQuestions from './LandingQuestions';
 import LandingHeader from './LandingHeader';
+import Image from 'next/image'
+
 
 export default function LandingHome() {
     return(
@@ -17,7 +19,7 @@ export default function LandingHome() {
           <div className="flex flex-wrap">
           <div className="w-full md:w-1/3 py-10 md:border-e-2">
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src="/icons/shop.svg"
                 alt=""
                 width={100}
@@ -29,7 +31,7 @@ export default function LandingHome() {
           </div>
           <div className="w-full md:w-1/3 px-4 py-10">
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src="/icons/download.svg"
                 alt=""
                 width={100}
@@ -41,7 +43,7 @@ export default function LandingHome() {
           </div>
           <div className="w-full md:w-1/3 px-4 py-10 md:border-s-2">
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src="/icons/rocket.svg"
                 alt="explota tus ventas"
                 width={100}
@@ -56,7 +58,7 @@ export default function LandingHome() {
           <div className="py-20 md:p-40 md:py-52">
             <div className="flex flex-col lg:flex-row px-10 ">
               <div className="w-full">
-                <img
+                <Image
                   className="max-w-full"
                   src="/landing_page_p2.png"
                   width={500}
@@ -80,7 +82,7 @@ export default function LandingHome() {
           <div className="py-24 md:px-40">
             <div className="flex flex-col lg:flex-row w-full md:p-20">
               <div className='md:pr-32'>
-                <img
+                <Image
                   className="max-w-full px-6"
                   src="/landing_page_p2.png"
                   width={500}
@@ -90,17 +92,17 @@ export default function LandingHome() {
               </div>
             <div className="flex flex-col text-left px-1 py-10 md:text-xl">
               <div className="flex items-center">
-                <img className='mr-1' src="/icons/number_one.svg" alt="" width={50}/>
+                <Image className='mr-1' src="/icons/number_one.svg" alt="" width={50} height={10}/>
                 <h1 className='font-bold py-2 text-xl md:text-3xl'> - Elegis tu dominio .com</h1>
               </div>
                 <p className='pb-6 ps-20 border-b-2'>Tu eliges el logo, los productos y los colores, nosotros te lo colocamos!</p>
                 <div className="flex items-center py-2">
-                  <img className='mr-1' src="/icons/number_two.svg" alt="" width={50}/>
+                  <Image className='mr-1' src="/icons/number_two.svg" alt="" width={50} height={10}/>
                   <h1 className='font-bold py-2 text-xl md:text-3xl'> - Personalizas tu tienda</h1>
                 </div>
                 <p className='pb-6 ps-20 border-b-2'>Solo nos indicas que productos necesitas y nosotros lo haremos!</p>
                 <div className="flex items-center">
-                  <img className='mr-1 py-2' src="/icons/number_three.svg" alt="" width={50}/>
+                  <Image className='mr-1 py-2' src="/icons/number_three.svg" alt="" width={50} height={10}/>
                   <h1 className='font-bold py-2 text-xl md:text-3xl'> - Explota todas tus ventas</h1>
                 </div>
                 <p className='pb-6 ps-20'>Una vez tengas la pagina, podras vender cuantas veces quieras</p>
