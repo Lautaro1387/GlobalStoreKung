@@ -1,6 +1,6 @@
 "use client"
 
-import LandingHome from "./landing/LandingHome";
+import LandingHome from "./components/LandingHome";
 import React from "react";
 import Link from 'next/image'
 
