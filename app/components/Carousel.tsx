@@ -4,35 +4,46 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
+type CarouselProps = {
+    images: { src: string, alt: string, width: number, height: number}[];
+    infiniteLoop?: boolean,
+    emulateTouch?: boolean,
+    showThumbs?: boolean,
+    showStatus?: boolean,
+    autoPlay?: boolean,
+    carouselWidth: number
+};
 
-export default function CarouselComponent() {
+const CarouselComponent: React.FC<CarouselProps> = ({
+    images,
+    infiniteLoop = true,
+    emulateTouch = true,
+    showThumbs = false,
+    showStatus = false,
+    autoPlay = true,
+    carouselWidth = 1600,
+}) => {
+
+
     return (
         <div className='bg-gray-600 flex items-center justify-center'>
             <Carousel          
-                infiniteLoop={true}
-                emulateTouch={true}
-                showThumbs={false}
-                showStatus={false}
-                autoPlay={true}
-                width={1600}
+                infiniteLoop={infiniteLoop}
+                emulateTouch={emulateTouch}
+                showThumbs={showThumbs}
+                showStatus={showStatus}
+                autoPlay={autoPlay}
+                width={carouselWidth}
                 className="w-full items-center justify-center flex"
                 >
-                <div className="flex justify-center items-center">
-                    <Image src="/img_coursel_1.png" alt="Product 1" className="mx-auto" width={11500} height={1000} />
-                </div>
-                <div className="flex justify-center items-center">
-                    <Image src="/img_coursel_2.png" alt="Product 2" className="mx-auto" width={10000} height={1000} ></Image>
-                </div>
-                <div className="flex justify-center items-center">
-                    <Image src="/img_coursel_2.png" alt="Product 3" className="mx-auto" width={10000} height={50} ></Image>
-                </div>
-                <div className="flex justify-center items-center">
-                    <Image src="/img_coursel_2.png" alt="Product 4" className="mx-auto" width={10000} height={100} ></Image>
-                </div>
-                <div className="flex justify-center items-center">
-                    <Image src="/img_coursel_2.png" alt="Product 5" className="mx-auto" width={10000} height={50}></Image>
-                </div>
+                {images.map((image, index) => (
+                    <div key={index} className="flex justify-center items-center">
+                        <Image src={image.src} alt={image.alt} className="mx-auto" width={image.width} height={image.height} />
+                    </div>
+                ))}
             </Carousel>
         </div>
-    )
-}
+    );
+};
+
+export default CarouselComponent;
