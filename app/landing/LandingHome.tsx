@@ -2,12 +2,14 @@ import React from 'react';
 import LandingFooter from './LandingFooter';
 import LandingQuestions from './LandingQuestions';
 import LandingHeader from './LandingHeader';
+import LandingNavBar from './LandingNavBar';
 import Image from 'next/image'
 
 
 export default function LandingHome() {
     return(
         <main className="flex flex-col items-right justify-between">
+          <LandingNavBar></LandingNavBar>
           <LandingHeader></LandingHeader>
           <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-36 pb-20 px-4 text-center">
               <h1>
@@ -73,12 +75,7 @@ export default function LandingHome() {
             </div>
           </div>
           <div>
-            <div className="justify-center items-center bg-slate-950 pb-10">
-              <h1 className="py-10 p-4 font-bold text-center text-2xl text-slate-100">ESTAMOS EN LINEA AHORA</h1>
-              <button className="hover:bg-slate-700 rounded-md mx-auto block text-2x1 bg-custom-bg text-gray-100 px-4 py-2 border-2 border-neutral-800">Chatea con nosotros</button>
-            </div>
           </div>
-
           <div className="py-24 md:px-40">
             <div className="flex flex-col lg:flex-row w-full md:p-20">
               <div className='md:pr-32'>
