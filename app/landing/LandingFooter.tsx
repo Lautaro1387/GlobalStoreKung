@@ -27,7 +27,7 @@ export default function LandingFooter() {
             </Link>
           </li>
         </ul>
-        <p className='text-xl text-center font-bold md:text-2xl'>© 2024 Global Store Kung <span className='hidden md:inline'>|</span> <br className=' inline md:hidden'/>Todos los derechos reservados</p>
+        <p className='text-xs text-center font-bold md:text-md'>© 2024 Global Store Kung <span className='hidden md:inline'>|</span> <br className=' inline md:hidden'/>Todos los derechos reservados</p>
         </div>
         </>
     )

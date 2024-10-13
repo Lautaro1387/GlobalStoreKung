@@ -1,11 +1,11 @@
 import React from "react";
 import Image from 'next/image'
-
+import LandingNavBar from "./LandingNavBar";
 
 export default function LandingHeader() {
     return(
-    <div className="bg-teal-600 py-3 justify-between items-center md:px-20 lg:px-20">
-        
+      <div className="bg-teal-600 py-3 justify-between items-center md:p-0 lg:p-0">
+        <LandingNavBar></LandingNavBar>
       <div className="flex flex-col md:flex-row lg:flex-row h-screen">
         <div className="w-full md:w-1/2 py-10 md:pr-20 md:py-24 lg:pr-20">
           <h1 className="text-4xl text-center md:text-left lg:text-left px-2 md:px-10 md:text-6xl lg:text-7xl md:py-16 font-bold mb-6 md:mb-0">Hace crecer tu negocio de la mejor manera!</h1>
@@ -21,15 +21,18 @@ export default function LandingHeader() {
           height={100}
           />
           </div>
-          <div className="w-full md:hidden lg:hidden h-screen bg-custom-bg flex justify-center items-center">
-          <Image
-            className="max-w-full"
-            src="/landing_phone_4.png"
-            width={700}
-            height={200}
-            alt="gif"
-          />
-      </div>
+          
+          {/* Mobile mode 
+            <div className="w-full md:hidden lg:hidden h-screen bg-custom-bg flex justify-center items-center">
+              <Image
+                className="max-w-full"
+                src="/landing_phone_4.png"
+                width={700}
+                height={200}
+                alt="gif"
+              /> 
+            </div>
+          */}
       </div>
     </div>)
 }
