@@ -6,7 +6,7 @@ export default function LandingHeader() {
     return(
       <div className="bg-teal-600 py-3 justify-between items-center md:p-0 lg:p-0">
         <LandingNavBar></LandingNavBar>
-      <div className="flex flex-col md:flex-row lg:flex-row h-screen">
+      <div className="flex flex-col md:flex-row lg:flex-row h-screen px-60">
         <div className="w-full md:w-1/2 py-10 md:pr-20 md:py-24 lg:pr-20">
           <h1 className="text-4xl text-center md:text-left lg:text-left px-2 md:px-10 md:text-6xl lg:text-7xl md:py-16 font-bold mb-6 md:mb-0">Hace crecer tu negocio de la mejor manera!</h1>
           <p className="md:text-2xl text-center px-5 md:px-10 text-lg pb-8 md:text-left lg:text-left">Nos encargamos de hacer crecer tu negocio.</p>
@@ -14,7 +14,7 @@ export default function LandingHeader() {
         </div>
         <div className="hidden lg:flex w-1/2 bg-teal-600 justify-center items-center pb-56">
         <Image
-          className="max-w-full"
+          className="max-w-full p-20"
           src="/img_header.svg"
           alt="gif"
           width={700}

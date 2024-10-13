@@ -12,10 +12,14 @@ export default function LandingQuestions() {
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
+  const [isActive4, setIsActive4] = useState(false);
+
   
   const textEnable1 = isActive1 ? '' : 'hidden'
   const textEnable2 = isActive2 ? '' : 'hidden'
   const textEnable3 = isActive3 ? '' : 'hidden'
+  const textEnable4 = isActive4 ? '' : 'hidden'
+
 
   const handleClick1 = () => {
     setIsActive1(!isActive1);
@@ -28,6 +32,10 @@ export default function LandingQuestions() {
   const handleClick3 = () => {
     setIsActive3(!isActive3);
   };
+
+  const handleClick4 = () => {
+    setIsActive4(!isActive4);
+  };
   
   return(
         <div className="flex flex-col justify-center pb-30 md:text-center md:px-96 py-40">
@@ -35,13 +43,13 @@ export default function LandingQuestions() {
           Preguntas frecuentes
         </h1>
 
-        <div className="flex items-center border-t-2 border-b-2 focus:outline-none cursor-pointer" onClick={handleClick1}>
-          <h1 className='px-4 font-bold text-lg'>
-            ¿La puedo manejar desde cualquier dispositivo?
+        <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick1}>
+          <h1 className='px-4 font-bold text-left text-lg w-full'>
+            ¿Las paginas se pueden manejar desde cualquier dispositivo?
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
-        <p className={`px-4 py-2 pb-10 text-lg md:text-left ${textEnable1}`}> Por supuesto que si, podrás manejar tu pagina tanto por un celular, una tablet, una laptop o computadora</p>
+        <p className={`px-4 py-2 pb-10 text-lg md:text-left ${textEnable1}`}> Si, podrás manejar tu pagina tanto por un celular, una tablet, una laptop o computadora</p>
 
         <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick2}>
           <h1 className='px-4 font-bold text-left text-lg w-full'>
@@ -56,6 +64,16 @@ export default function LandingQuestions() {
             <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
           <p className={`px-4 py-2 pb-20 text-lg  md:text-left ${textEnable3}`}>No, no cobramos ningun tipo de comision.</p>
+        
+
+        <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick4}>
+          <h1 className='px-4 font-bold text-left text-lg w-full'>
+            ¿Ofrecemos servicios de mantenimiento despues del lanzamiento?
+          </h1>
+          <Image src={imgEnable} alt="" width={50} height={10}/>
+        </div>
+        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable4}`}>Sí, ofrecemos mantenimiento continuo para asegurar que su proyecto esté siempre actualizado, seguro y funcionando correctamente. Esto incluye actualizaciones de seguridad, copias de seguridad y soporte técnico.</p>
+
         <div className="py-10"></div>
         <p className='text-center text-xl md:text-2xl'>¿Te quedan consultas? </p> <a className='font-bold text-gray-700 justify-end text-xl md:text-2xl text-center'>Estamos para ayudarte</a>
     </div>
