@@ -23,7 +23,7 @@ export default function NavBar() {
     }, []);
   return (
     <>
-    <header className={`p-1 fixed w-full top-0 z-50" transition-colors duration-300 ${isScrolled ? 'bg-transparent' : 'bg-teal-700'}`}>
+    <header className={`p-1 fixed w-full top-0 z-50" transition-colors duration-300 ${isScrolled ? 'bg-teal-700 bg-opacity-60 backdrop-blur-md' : 'bg-teal-700'}`}>
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
             <div className="flex items-center">
