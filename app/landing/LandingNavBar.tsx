@@ -50,9 +50,6 @@ export default function NavBar() {
         </div>
          
         <div className='md:hidden'>
-          <button>
-              <Image src="/icons/config_black.svg" alt='config' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-1'></Image>
-          </button>
           <button onClick={() => setIsOpen(!isOpen)}
             className='text-white focus:outline-none'>
             <Image src={`${isOpen ? '/icons/cross.svg' : '/icons/hamburger.svg'}`} alt='config' width={30} height={40}></Image>
