@@ -1,40 +1,38 @@
 import React from "react";
-import Image from 'next/image'
+import Image from 'next/image';
 import LandingNavBar from "./LandingNavBar";
+import Link from "next/link";
+
 
 export default function LandingHeader() {
-    return(
-      <div className="bg-teal-600 py-3 justify-between items-center md:p-0 lg:p-0">
-        <LandingNavBar></LandingNavBar>
-      <div className="flex flex-col md:flex-row lg:flex-row h-screen px-60">
-        <div className="w-full md:w-1/2 py-10 md:pr-20 md:py-24 lg:pr-20">
-          <h1 className="text-4xl text-center md:text-left lg:text-left px-2 md:px-10 md:text-6xl lg:text-7xl md:py-16 font-bold mb-6 md:mb-0">Hace crecer tu negocio de la mejor manera!</h1>
-          <p className="md:text-2xl text-center px-5 md:px-10 text-lg pb-8 md:text-left lg:text-left">Nos encargamos de hacer crecer tu negocio.</p>
-          <button className="hover:bg-slate-900 block mx-auto md:mx-10 md:justify-self-start md:items-self-start rounded-full text-xl md:text-2xl bg-slate-950 text-gray-100 px-4 p-10 py-2 md:px-6 md:py-4 border-2 border-neutral-800">
-            Contacto
+  return (
+    <div>
+      <LandingNavBar />
+    <div className="bg-teal-600 py-40 justify-between items-center text-start">
+      <div className="flex flex-col md:flex-row h-screen px-5 md:px-20 lg:px-30">
+        <div className="w-full md:w-1/2 md:pr-10 lg:pr-20">
+          <h1 className="md:text-left lg:text-left px-2 md:px-4 lg:px-10 text-5xl md:text-6xl lg:text-6xl font-bold mb-6">
+            ¡Haz crecer tu negocio de la mejor manera!
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl md:text-left px-4 lg:px-10 pb-8">
+            Nos encargamos de hacer crecer tu negocio.
+          </p>
+          <button className="hover:bg-slate-900 mx-auto md:mx-0 rounded-full text-xl bg-slate-950 text-gray-100 px-6 py-2 md:py-4 border-2 border-neutral-800">
+            <Link href='/contacto'>Contacto</Link>
+            
           </button>
         </div>
-        <div className="hidden lg:flex w-1/2 bg-teal-600 justify-center items-center pb-56">
-        <Image
-          className="max-w-full p-20"
-          src="/img_header.svg"
-          alt="gif"
-          width={700}
-          height={100}
-          />
-          </div>
-          
-          {/* Mobile mode 
-            <div className="w-full md:hidden lg:hidden h-screen bg-custom-bg flex justify-center items-center">
-              <Image
-                className="max-w-full"
-                src="/landing_phone_4.png"
-                width={700}
-                height={200}
-                alt="gif"
-              /> 
-            </div>
-          */}
+        <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 lg:pb-56">
+          <Image
+            className="max-w-full p-5 lg:p-10"
+            src="/img_header.svg"
+            alt="gif"
+            width={480}
+            height={400}
+            />
+        </div>
       </div>
-    </div>)
+    </div>
+    </div>
+  );
 }

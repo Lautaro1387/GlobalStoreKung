@@ -38,37 +38,36 @@ export default function LandingQuestions() {
   };
   
   return(
-        <div className="flex flex-col justify-center pb-30 md:text-center md:px-96 py-40">
+        <div className="flex flex-col justify-center pb-30 md:text-center md:px-40 py-40">
         <h1 className='font-bold pb-16 text-3xl text-center'>
           Preguntas frecuentes
         </h1>
 
         <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick1}>
           <h1 className='px-4 font-bold text-left text-lg w-full'>
-            ¿Las paginas se pueden manejar desde cualquier dispositivo?
+            ¿Si eligo algun servicio que requiera pagina web, podré manejar mi pagina en cualquier dispositivo?
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
         <p className={`px-4 py-2 pb-10 text-lg md:text-left ${textEnable1}`}> Si, podrás manejar tu pagina tanto por un celular, una tablet, una laptop o computadora</p>
-
         <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick2}>
           <h1 className='px-4 font-bold text-left text-lg w-full'>
-            ¿Se aceptan pagos online?
+            ¿Cuales son los metodos de pago?
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
         <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable2}`}>Si, los pagos se hacen mediante transferencia bancaria.</p>
-
-        <div className="flex items-center text-xl border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick3}>
-            <h1 className='px-4 font-bold text-left text-lg w-full'>¿Debo pagar alguna comision por las ventas?</h1>
-            <Image src={imgEnable} alt="" width={50} height={10}/>
+        <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick2}>
+          <h1 className='px-4 font-bold text-left text-lg w-full'>
+            ¿Cuanto tiempo demoran eb realizar mi proyecto?
+          </h1>
+          <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
-          <p className={`px-4 py-2 pb-20 text-lg  md:text-left ${textEnable3}`}>No, no cobramos ningun tipo de comision.</p>
+        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable2}`}>Dependerá del tipo de servicio que eligas, pero siempre se indicará antes del pago, el tiempo previsto que llevará hacer el proyecto.</p>
         
-
         <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick4}>
           <h1 className='px-4 font-bold text-left text-lg w-full'>
-            ¿Ofrecemos servicios de mantenimiento despues del lanzamiento?
+            ¿Ofrecen servicio de mantenimiento despues de crear mi proyecto?
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
