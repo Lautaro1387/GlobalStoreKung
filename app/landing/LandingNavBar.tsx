@@ -42,11 +42,11 @@ export default function NavBar() {
         {/* Botones en el centro */}
        
         {/* Barra de búsqueda e iconos */}
-        <div className={`space-x-9 p-1  text-lg hidden md:flex`}>
+        <div className='space-x-9 p-6 text-lg hidden md:flex'>
           <Link href="/" className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">Inicio</Link>
-          <Link href="/categorias" className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">Servicios</Link>
-          <Link href="/productos"className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">Contacto</Link>
-          <Link href="/preguntas frecuentes"className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">FAQs</Link>
+          <Link href="#servicios" className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">Servicios</Link>
+          <Link href="/contacto"className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">Contacto</Link>
+          <Link href="#faqs"className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400">FAQs</Link>
         </div>
          
         <div className='md:hidden'>
@@ -56,8 +56,6 @@ export default function NavBar() {
           </button>
         </div>
       </div>
-       
-        
         {isOpen && (
         <div className="md:hidden mt-2 space-y-2 px-4">
           <a href="#" className="block text-black hover:text-gray-300 text">Inicio</a>

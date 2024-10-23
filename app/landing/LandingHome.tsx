@@ -3,19 +3,20 @@ import LandingFooter from './LandingFooter';
 import LandingQuestions from './LandingQuestions';
 import LandingHeader from './LandingHeader';
 import Image from 'next/image'
+import LandingInfoServices from './LandingInfoServices';
 
 
 export default function LandingHome() {
     return(
-        <main className="flex flex-col items-right justify-between">
+        <main className="flex flex-col items-right justify-between font-extrabold">
           <LandingHeader></LandingHeader>
-          <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-36 pb-20 px-4 text-center">
+          <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-10 pb-20 px-4 text-center">
               <h1>
-               Los servicios que ofrecemos
+               Posiblemente saquemos esta sección, si no darle otro uso
               </h1>
           </div>
           <div className="flex flex-wrap">
-          <div className="w-full md:w-1/3 py-10 p-40">
+          <div className="w-full md:w-1/3 py-10">
             <div className="flex flex-col items-center">
               <Image
                 src="/icons/shopping-bag.svg"
@@ -52,12 +53,12 @@ export default function LandingHome() {
             </div>
           </div>
         </div>
-            
-            <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-36 pb-20 px-4 text-center">
+        <LandingInfoServices />
+            <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-10 pb-20 px-4 text-center">
               <h1>
-              Por que elegirnos?
+              ¿Por qué elegirnos?
               </h1>
-          </div>
+              </div>
           <div className="flex flex-wrap">
           <div className="w-full md:w-1/3 py-10">
             <div className="flex flex-col items-center">
