@@ -3,21 +3,21 @@ import LandingServices from './LandingServices';
 
 const servicesList = [
     {
-        imageUrl: '/img_product_1.png',
+        imageUrl: '/icons/img_product_1.png',
         imageName: 'Service 1',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 1',
         cost: 50,
     },
     {
-        imageUrl: '/img_product_2.png',
+        imageUrl: '/icons/img_product_2.png',
         imageName: 'Service 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
         cost: 80,
     },
     {
-        imageUrl: '/img_product_3.png',
+        imageUrl: '/icons/img_product_3.png',
         imageName: 'Service 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
