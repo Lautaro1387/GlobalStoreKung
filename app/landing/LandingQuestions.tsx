@@ -57,7 +57,7 @@ export default function LandingQuestions() {
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
-        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable2}`}>Si, los pagos se hacen mediante transferencia bancaria.</p>
+        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable2}`}>Los pagos se hacen mediante transferencia bancaria, Prex o PayPal.</p>
         
         <div className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer" onClick={handleClick3}>
           <h1 className='px-4 font-bold text-left text-lg w-full'>
@@ -73,7 +73,7 @@ export default function LandingQuestions() {
           </h1>
           <Image src={imgEnable} alt="" width={50} height={10}/>
         </div>
-        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable4}`}>Sí, ofrecemos mantenimiento continuo para asegurar que su proyecto esté siempre actualizado, seguro y funcionando correctamente. Esto incluye actualizaciones de seguridad, copias de seguridad y soporte técnico.</p>
+        <p className={`px-4 py-2 pb-10 text-lg  md:text-left ${textEnable4}`}>Sí, ofrecemos mantenimiento continuo para asegurar que su proyecto esté siempre actualizado, seguro y funcionando correctamente.</p>
 
         <div className="py-10"></div>
         <p className='text-center text-xl'>¿Te quedan consultas? </p> <a className='font-bold text-gray-700 text-xl text-center' href="/contacto">Estamos para ayudarte</a>
