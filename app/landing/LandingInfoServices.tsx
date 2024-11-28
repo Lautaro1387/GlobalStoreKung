@@ -7,7 +7,6 @@ interface Service {
     imageName: string;
     nameProduct: string;
     description: string;
-    cost: number;
 }
 
 // Lista de servicios con tipado
@@ -17,21 +16,18 @@ const servicesList: Service[] = [
         imageName: 'Landing Page',
         nameProduct: 'Landing Page',
         description: 'Diseñamos páginas de aterrizaje efectivas para captar clientes.',
-        cost: 50,
     },
     {
         imageUrl: '/icons/img_service_2.png',
         imageName: 'Dominio VPS',
         nameProduct: 'Dominio VPS',
         description: 'Configura tu dominio con VPS para un rendimiento óptimo.',
-        cost: 80,
     },
     {
         imageUrl: '/icons/img_service_3.png',
         imageName: 'Automatización de Negocios',
         nameProduct: 'Automatización de Negocios',
         description: 'Simplifica procesos y mejora la eficiencia con nuestras soluciones.',
-        cost: 120,
     },
 ];
 

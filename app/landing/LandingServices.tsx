@@ -6,7 +6,6 @@ interface Service {
     imageName: string;
     nameProduct: string;
     description: string;
-    cost: number;
 }
 
 interface LandingServicesProps {
@@ -28,9 +27,6 @@ const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
                     />
                     <h2 className='text-2xl font-bold mt-4'>{service.nameProduct}</h2>
                     <p className='text-gray-600 mt-2'>{service.description}</p>
-                    <p className='text-xl font-semibold text-blue-600 mt-4'>
-                        ${service.cost}
-                    </p>
                 </div>
             ))}
         </div>

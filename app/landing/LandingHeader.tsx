@@ -15,10 +15,10 @@ export default function LandingHeader() {
               ¡Haz crecer tu negocio de la mejor manera!
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl md:text-left px-4 lg:px-10 pb-8">
-              Nos encargamos de hacer crecer tu negociooooo.
+              Aplicamos estrategias y soluciones innovadoras para satisfacer las necesidades de tus clientes.
             </p>
-            <Link className="hover:bg-slate-900 md:mx-8 mx-2 rounded-full text-xl bg-slate-950 text-gray-100 px-6 py-3 md:py-4 border-2 border-neutral-800" href='/contacto'>
-            Contacto
+            <Link className="hover:bg-slate-900 md:mx-8 mx-2 rounded-full text-xl bg-slate-950 text-gray-100 px-6 py-3 md:py-4 border-2 border-neutral-800 animate-bounce" href='/contacto'>
+            Contacta con nosotros
             </Link>
           </div>
           <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 lg:pb-56">
@@ -35,3 +35,7 @@ export default function LandingHeader() {
     </div>
   );
 }
+
+
+
+
