@@ -1,13 +1,13 @@
 import React from "react";
 import Image from 'next/image';
-import LandingNavBar from "./LandingNavBar";
+import NavBar from "./LandingNavBar";
 import Link from "next/link";
 
 
 export default function LandingHeader() {
   return (
     <div>
-      <LandingNavBar />
+      <NavBar />
       <div className="bg-teal-600 py-40 justify-between items-center text-start">
         <div className="flex flex-col md:flex-row h-screen px-5 md:px-20 lg:px-30">
           <div className="w-full md:w-1/2 md:pr-10 lg:pr-20">
@@ -15,9 +15,10 @@ export default function LandingHeader() {
               ¡Haz crecer tu negocio de la mejor manera!
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl md:text-left px-4 lg:px-10 pb-8">
-              Nos encargamos de hacer crecer tu negocio.
+              Nos encargamos de hacer crecer tu negociooooo.
             </p>
-            <Link className="hover:bg-slate-900 mx-auto md:mx-0 rounded-full text-xl bg-slate-950 text-gray-100 px-6 py-2 md:py-4 border-2 border-neutral-800" href='/contacto'>Contacto
+            <Link className="hover:bg-slate-900 md:mx-8 mx-2 rounded-full text-xl bg-slate-950 text-gray-100 px-6 py-3 md:py-4 border-2 border-neutral-800" href='/contacto'>
+            Contacto
             </Link>
           </div>
           <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 lg:pb-56">

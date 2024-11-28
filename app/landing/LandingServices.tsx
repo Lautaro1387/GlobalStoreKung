@@ -1,39 +1,40 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
 
-
-type Product = {
-    imageUrl: string,
-    imageName: string,
-    nameProduct: string,
-    description: string,
-    cost: number,
+// Definición del tipo para las propiedades
+interface Service {
+    imageUrl: string;
+    imageName: string;
+    nameProduct: string;
+    description: string;
+    cost: number;
 }
 
+interface LandingServicesProps {
+    services: Service[];
+}
 
-const LandingServices: React.FC<{ services: Product[] }> = ({ services }) => {
+const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
     return (
-        <>
-            <div className="flex flex-wrap justify-center items-center p-10 px-60">
-                {services.map((product, index) => (
-                    <div key={index} className="w-1/4 p-1 pb-1 mb-4 md:w-1/3">
-                        <Link href="/product_info">
-                        <div className="border-2 border-gray-500 rounded-lg hover:border-gray-900 transition duration-300">
-                            <Image  src={product.imageUrl} alt={product.imageName} width={250} height={100}></Image>
-                            <h3 className="px-2 py-1">{product.nameProduct}</h3>
-                            <div>
-                                <h4 className="px-2 pb-1">$ {product.cost} </h4>                           
-                            </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-            </div>
-        `
-        </>
-    )
-
-}
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 p-5'>
+            {services.map((service, index) => (
+                <div
+                    key={index}
+                    className='bg-white shadow-lg rounded-lg p-5 hover:scale-105 transition-transform duration-300'
+                >
+                    <img
+                        src={service.imageUrl}
+                        alt={service.imageName}
+                        className='w-full h-40 object-cover rounded'
+                    />
+                    <h2 className='text-2xl font-bold mt-4'>{service.nameProduct}</h2>
+                    <p className='text-gray-600 mt-2'>{service.description}</p>
+                    <p className='text-xl font-semibold text-blue-600 mt-4'>
+                        ${service.cost}
+                    </p>
+                </div>
+            ))}
+        </div>
+    );
+};
 
 export default LandingServices;
