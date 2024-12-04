@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://www.globalstorekung.com", // Cambia esto por tu dominio real
     images: [
       {
-        url: "/cart.svg", // Imagen para Open Graph, cambia "foto_1.jpg" por tu imagen
+        url: "/favicon_2.jpg", // Imagen para Open Graph, cambia "foto_1.jpg" por tu imagen
         width: 1200,
         height: 630,
         alt: "Descripción de la imagen para Open Graph",
