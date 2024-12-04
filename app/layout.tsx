@@ -6,10 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Global Store Kung",
-  description: "By Lautaro Illa",
+  description: "By1 Lautaro Illa",
   openGraph: {
     title: "Global Store Kung",
-    description: "By Lautaro Illa",
+    description: "By2 Lautaro Illa",
     url: "https://www.globalstorekung.com", // Cambia esto por tu dominio real
     images: [
       {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Global Store Kung",
-    description: "By Lautaro Illa",
+    description: "By3 Lautaro Illa",
     images: ["/cart.svg"], // Misma imagen para Twitter
   },
 };
@@ -41,14 +41,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         {/* Open Graph metatags */}
         <meta property="og:title" content="Global Store Kung" />
-        <meta property="og:description" content="By Lautaro Illa" />
+        <meta property="og:description" content="By4 Lautaro Illa" />
         <meta property="og:image" content="/cart.svg" />
         <meta property="og:url" content="https://www.globalstorekung.com" />
         <meta property="og:type" content="website" />
         {/* Twitter metatags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Global Store Kung" />
-        <meta name="twitter:description" content="By Lautaro Illa" />
+        <meta name="twitter:description" content="By5 Lautaro Illa" />
         <meta name="twitter:image" content="/cart.svg" />
       </head>
       <body className={inter.className}>{children}</body>
