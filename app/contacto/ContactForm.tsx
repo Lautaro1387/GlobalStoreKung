@@ -3,6 +3,7 @@ import { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import LandingFooter from "../landing/LandingFooter";
 import LandingNavBar from "../landing/LandingNavBar";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Definimos el tipo para las opciones de país
 type CountryOption = {
@@ -13,28 +14,26 @@ type CountryOption = {
 
 // Lista de países con emojis de banderas
 const countries: CountryOption[] = [
-    { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
-    { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
-    { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
-    { value: "United States", label: "United States", emoji: "🇺🇸" },
-    { value: "Canada", label: "Canada", emoji: "🇨🇦" },
-    { value: "Mexico", label: "Mexico", emoji: "🇲🇽" },
-    { value: "United Kingdom", label: "United Kingdom", emoji: "🇬🇧" },
-    { value: "France", label: "France", emoji: "🇫🇷" },
-    { value: "Germany", label: "Germany", emoji: "🇩🇪" },
-    { value: "Spain", label: "Spain", emoji: "🇪🇸" },
-    { value: "Italy", label: "Italy", emoji: "🇮🇹" },
-    { value: "Australia", label: "Australia", emoji: "🇦🇺" },
-    { value: "China", label: "China", emoji: "🇨🇳" },
-    { value: "India", label: "India", emoji: "🇮🇳" },
-    { value: "Japan", label: "Japan", emoji: "🇯🇵" },
-    { value: "South Korea", label: "South Korea", emoji: "🇰🇷" },
-    { value: "South Africa", label: "South Africa", emoji: "🇿🇦" },
-    { value: "Russia", label: "Russia", emoji: "🇷🇺" },
-    { value: "Saudi Arabia", label: "Saudi Arabia", emoji: "🇸🇦" },
-  ];
-  
-  
+  { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
+  { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
+  { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
+  { value: "United States", label: "United States", emoji: "🇺🇸" },
+  { value: "Canada", label: "Canada", emoji: "🇨🇦" },
+  { value: "Mexico", label: "Mexico", emoji: "🇲🇽" },
+  { value: "United Kingdom", label: "United Kingdom", emoji: "🇬🇧" },
+  { value: "France", label: "France", emoji: "🇫🇷" },
+  { value: "Germany", label: "Germany", emoji: "🇩🇪" },
+  { value: "Spain", label: "Spain", emoji: "🇪🇸" },
+  { value: "Italy", label: "Italy", emoji: "🇮🇹" },
+  { value: "Australia", label: "Australia", emoji: "🇦🇺" },
+  { value: "China", label: "China", emoji: "🇨🇳" },
+  { value: "India", label: "India", emoji: "🇮🇳" },
+  { value: "Japan", label: "Japan", emoji: "🇯🇵" },
+  { value: "South Korea", label: "South Korea", emoji: "🇰🇷" },
+  { value: "South Africa", label: "South Africa", emoji: "🇿🇦" },
+  { value: "Russia", label: "Russia", emoji: "🇷🇺" },
+  { value: "Saudi Arabia", label: "Saudi Arabia", emoji: "🇸🇦" },
+];
 
 // Tipo de datos del formulario
 type FormData = {
@@ -50,19 +49,27 @@ export default function ContactForm() {
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
   const [message, setMessage] = useState<{ type: string; text: string } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
 
   const onSubmit = async (data: FormData) => {
+    if (!recaptchaToken) {
+      setRecaptchaError(true);
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
 
       if (response.ok) {
         setMessage({ type: "success", text: "¡Enviado con éxito!" });
         reset();
+        setRecaptchaToken(null);
       } else {
         setMessage({ type: "error", text: "Hubo un error al enviar el correo" });
       }
@@ -70,6 +77,11 @@ export default function ContactForm() {
       setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
     }
     setIsLoading(false);
+  };
+
+  const handleRecaptcha = (token: string | null) => {
+    setRecaptchaToken(token);
+    setRecaptchaError(false);
   };
 
   const closeModal = () => {
@@ -136,6 +148,14 @@ export default function ContactForm() {
               }`}
             />
             {errors.subject && <p className="text-yellow-600 text-sm">{errors.subject.message}</p>}
+
+            <ReCAPTCHA
+              sitekey="TU_CLAVE_DEL_SITIO"
+              onChange={handleRecaptcha}
+            />
+            {recaptchaError && (
+              <p className="text-red-600 text-sm">Por favor completa el reCAPTCHA</p>
+            )}
           </div>
 
           <button
