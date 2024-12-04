@@ -54,9 +54,9 @@ export default function LandingHome() {
           </div>
         </div>
         <LandingInfoServices />
-            <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-10 pb-20 px-4 text-center">
-              <h1>
-              ¿Por qué elegirnos?
+            <div className="flex justify-center items-center font-bold text-3xl pt-20 md:py-10 pb-10 px-4 text-center">
+              <h1 className='flex justify-center items-center p-10 text-4xl font-serif text-gray-800'>
+                ¿Por qué elegirnos?
               </h1>
               </div>
           <div className="flex flex-wrap">

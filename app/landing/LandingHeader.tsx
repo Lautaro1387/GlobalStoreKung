@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function LandingHeader() {
   return (
-    <div>
+    <div className="bg-teal-700">
       <NavBar />
       <div className="bg-teal-600 py-40 justify-between items-center text-start">
         <div className="flex flex-col md:flex-row h-screen px-5 md:px-20 lg:px-30">
