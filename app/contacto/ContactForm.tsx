@@ -154,7 +154,7 @@ export default function ContactForm() {
               onChange={handleRecaptcha}
             />
             {recaptchaError && (
-              <p className="text-red-600 text-sm">Por favor completa el reCAPTCHA</p>
+              <p className="text-red-600 text-sm">Por favor completa el reCAPTCHA para continuar</p>
             )}
           </div>
 
