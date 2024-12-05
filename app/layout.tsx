@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://www.globalstorekung.com", // Cambia esto por tu dominio real
     images: [
       {
-        url: "/favicon_2.jpg", // Imagen para Open Graph, cambia "foto_1.jpg" por tu imagen
+        url: "/favicon.ico", // Imagen para Open Graph, cambia "foto_1.jpg" por tu imagen
         width: 1200,
         height: 630,
         alt: "Descripción de la imagen para Open Graph",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Global Store Kung",
     description: "By3 Lautaro Illa",
-    images: ["/cart.svg"], // Misma imagen para Twitter
+    images: ["/favicon.ico"], // Misma imagen para Twitter
   },
 };
 
@@ -42,14 +42,14 @@ export default function RootLayout({
         {/* Open Graph metatags */}
         <meta property="og:title" content="Global Store Kung" />
         <meta property="og:description" content="By4 Lautaro Illa" />
-        <meta property="og:image" content="/cart.svg" />
+        <meta property="og:image" content="/favicon.ico" />
         <meta property="og:url" content="https://www.globalstorekung.com" />
         <meta property="og:type" content="website" />
         {/* Twitter metatags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Global Store Kung" />
         <meta name="twitter:description" content="By5 Lautaro Illa" />
-        <meta name="twitter:image" content="/cart.svg" />
+        <meta name="twitter:image" content="/favicon.ico" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
