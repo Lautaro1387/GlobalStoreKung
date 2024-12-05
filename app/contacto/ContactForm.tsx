@@ -150,7 +150,7 @@ export default function ContactForm() {
             {errors.subject && <p className="text-yellow-600 text-sm">{errors.subject.message}</p>}
 
             <ReCAPTCHA
-              sitekey="TU_CLAVE_DEL_SITIO"
+              sitekey="6LfFf5IqAAAAAPYQX9GEqL3ks1D0kiRzEJE6nKgw"
               onChange={handleRecaptcha}
             />
             {recaptchaError && (
