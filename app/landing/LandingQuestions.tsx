@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -53,16 +54,17 @@ export default function LandingQuestions(): JSX.Element {
       </h1>
 
       {questions.map((item, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-4 pb-6 ">
           <div
-            className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer"
+            className="flex items-center border-b-2 w-full focus:outline-none cursor-pointer hover:bg-slate-300"
             onClick={() => toggleQuestion(index)}
           >
-            <h1 className="px-4 font-bold text-left text-lg w-full">
+            <h1 className="px-4 font-bold text-left text-lg w-full ">
               {item.question}
             </h1>
             <Image
-              src={isActive[index] ? "/icons/arrow_up.svg" : "/icons/arrow.svg"}
+              className={`${isActive[index] ? 'rotate-180' : 'rotate-0'} transform transition-transform duration-300`}
+              src={isActive[index] ? "/icons/arrow_down_2.svg" : "/icons/arrow_down_2.svg"}
               alt="Arrow Icon"
               width={50}
               height={10}
@@ -78,7 +80,7 @@ export default function LandingQuestions(): JSX.Element {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="px-4 py-2 pb-10 text-lg md:text-left">
+            <p className="px-4 pb-10 text-md md:text-left pt-4 text-gray-800">
               {item.answer}
             </p>
           </motion.div>

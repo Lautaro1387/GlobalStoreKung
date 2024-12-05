@@ -59,6 +59,8 @@ export default function LandingNavBar() {
                 <div className="container mx-auto flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex items-center">
+                    <Link href="/">
+
                         <Image
                             src="/logo_finally.png"
                             alt="Logo"
@@ -66,6 +68,7 @@ export default function LandingNavBar() {
                             height={50}
                             className="mr-3"
                         />
+                    </Link>
                     </div>
 
                     {/* Botones en el centro */}
