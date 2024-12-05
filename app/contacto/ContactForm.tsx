@@ -27,6 +27,7 @@ const countries: CountryOption[] = [
   { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
   { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
   { value: "United States", label: "United States", emoji: "🇺🇸" },
+  { value: "Chile", label: "Chile", emoji: "🇺🇸" }
   // Agrega más países si es necesario
 ];
 
