@@ -1,39 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Select, { SingleValue } from "react-select";
+import ReCAPTCHA from "react-google-recaptcha";
 import LandingFooter from "../landing/LandingFooter";
 import LandingNavBar from "../landing/LandingNavBar";
-import ReCAPTCHA from "react-google-recaptcha";
-
-// Definimos el tipo para las opciones de país
-type CountryOption = {
-  value: string;
-  label: string;
-  emoji: string;
-};
-
-// Lista de países con emojis de banderas
-const countries: CountryOption[] = [
-  { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
-  { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
-  { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
-  { value: "United States", label: "United States", emoji: "🇺🇸" },
-  { value: "Canada", label: "Canada", emoji: "🇨🇦" },
-  { value: "Mexico", label: "Mexico", emoji: "🇲🇽" },
-  { value: "United Kingdom", label: "United Kingdom", emoji: "🇬🇧" },
-  { value: "France", label: "France", emoji: "🇫🇷" },
-  { value: "Germany", label: "Germany", emoji: "🇩🇪" },
-  { value: "Spain", label: "Spain", emoji: "🇪🇸" },
-  { value: "Italy", label: "Italy", emoji: "🇮🇹" },
-  { value: "Australia", label: "Australia", emoji: "🇦🇺" },
-  { value: "China", label: "China", emoji: "🇨🇳" },
-  { value: "India", label: "India", emoji: "🇮🇳" },
-  { value: "Japan", label: "Japan", emoji: "🇯🇵" },
-  { value: "South Korea", label: "South Korea", emoji: "🇰🇷" },
-  { value: "South Africa", label: "South Africa", emoji: "🇿🇦" },
-  { value: "Russia", label: "Russia", emoji: "🇷🇺" },
-  { value: "Saudi Arabia", label: "Saudi Arabia", emoji: "🇸🇦" },
-];
 
 // Tipo de datos del formulario
 type FormData = {
@@ -44,7 +14,22 @@ type FormData = {
   subject: string;
 };
 
-// Componente principal
+// Tipo de opciones para los países
+type CountryOption = {
+  value: string;
+  label: string;
+  emoji: string;
+};
+
+// Lista de países
+const countries: CountryOption[] = [
+  { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
+  { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
+  { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
+  { value: "United States", label: "United States", emoji: "🇺🇸" },
+  // Agrega más países si es necesario
+];
+
 export default function ContactForm() {
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
   const [message, setMessage] = useState<{ type: string; text: string } | null>(null);
@@ -52,6 +37,7 @@ export default function ContactForm() {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
 
+  // **1. La función `onSubmit`**
   const onSubmit = async (data: FormData) => {
     if (!recaptchaToken) {
       setRecaptchaError(true);
@@ -59,35 +45,42 @@ export default function ContactForm() {
     }
 
     setIsLoading(true);
+
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, recaptchaToken }),
+        body: JSON.stringify({ ...data, token: recaptchaToken }),
       });
+
+      const result = await response.json();
 
       if (response.ok) {
         setMessage({ type: "success", text: "¡Enviado con éxito!" });
         reset();
         setRecaptchaToken(null);
       } else {
-        setMessage({ type: "error", text: "Hubo un error al enviar el correo" });
+        setMessage({ type: "error", text: result.message || "Error al enviar el correo" });
       }
-    } catch {
+    } catch (error) {
       setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
+  // **2. Maneja el token generado por reCAPTCHA**
   const handleRecaptcha = (token: string | null) => {
     setRecaptchaToken(token);
     setRecaptchaError(false);
   };
 
+  // **3. Cierra el modal de mensaje**
   const closeModal = () => {
     setMessage(null);
   };
 
+  // **4. Renderiza el formulario**
   return (
     <>
       <LandingNavBar />
@@ -96,7 +89,7 @@ export default function ContactForm() {
       </h1>
       <div className="max-w-md mx-auto pb-20">
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)} // Llama a `onSubmit` al enviar el formulario
           className="bg-purple-100 p-8 rounded-lg shadow-md border-4 border-teal-700"
         >
           <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">Contáctanos</h2>
@@ -150,8 +143,8 @@ export default function ContactForm() {
             {errors.subject && <p className="text-yellow-600 text-sm">{errors.subject.message}</p>}
 
             <ReCAPTCHA
-              sitekey="6LfFf5IqAAAAAPYQX9GEqL3ks1D0kiRzEJE6nKgw"
-              onChange={handleRecaptcha}
+              sitekey="6LfFf5IqAAAAAPYQX9GEqL3ks1D0kiRzEJE6nKgw" // Reemplaza con tu Site Key
+              onChange={handleRecaptcha} // Llama a `handleRecaptcha` para manejar el token
             />
             {recaptchaError && (
               <p className="text-red-600 text-sm">Por favor completa el reCAPTCHA para continuar</p>
