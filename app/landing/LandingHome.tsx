@@ -10,13 +10,8 @@ export default function LandingHome() {
     return(
         <main className="flex flex-col items-right justify-between font-extrabold">
           <LandingHeader></LandingHeader>
-          <div className="flex justify-center items-center font-bold text-3xl py-96 md:py-10 pb-20 px-4 text-center">
-              <h1>
-               Posiblemente saquemos esta sección, si no darle otro uso
-              </h1>
-          </div>
           <div className="flex flex-wrap">
-          <div className="w-full md:w-1/3 py-10">
+          <div className="w-full md:w-1/3 pt-20">
             <div className="flex flex-col items-center">
               <Image
                 src="/icons/shopping-bag.svg"
@@ -28,7 +23,7 @@ export default function LandingHome() {
               <p className="text-center">Tu nos pasas la información para el sitio web y nosotros lo creamos, según tus preferencias (se incluye hosting y certificado SSL)!</p>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4 py-10">
+          <div className="w-full md:w-1/3 px-4 pt-20">
             <div className="flex flex-col items-center">
               <Image
                 src="/icons/blog.svg"
@@ -40,7 +35,7 @@ export default function LandingHome() {
               <p className="text-center">Creamos diseños personalizados para satisfacer las necesidades de nuestros clientes.</p>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4 py-10">
+          <div className="w-full md:w-1/3 px-4 pt-20">
             <div className="flex flex-col items-center">
               <Image
                 src="/icons/portfolio.svg"

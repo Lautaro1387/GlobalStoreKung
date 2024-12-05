@@ -33,8 +33,8 @@ const servicesList: Service[] = [
 
 const LandingInfoServices: React.FC = () => {
     return (
-        <div id='servicios' className='bg-gray-100'>
-            <h1 className='flex justify-center items-center md:p-10 pt-20 text-4xl md:text-5xl font-serif text-gray-800'>
+        <div id='servicios' className='bg-gray-100 '>
+            <h1 className='flex justify-center items-center md:p-10 md:pt-20 pt-40 text-4xl md:text-5xl font-serif text-gray-800'>
                 Nuestros Servicios
             </h1>
             <LandingServices services={servicesList} />
