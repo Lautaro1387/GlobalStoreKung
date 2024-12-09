@@ -15,19 +15,19 @@ const servicesList: Service[] = [
         imageUrl: '/icons/landing_page.webp',
         imageName: 'Landing Page',
         nameProduct: 'Landing Page',
-        description: 'Diseñamos páginas de aterrizaje efectivas para captar clientes.',
+        description: 'Creamos paginas webs innovadoras y optimizadas para que tus clientes puedan ver tu producto o servicio de manera efectiva, clara y accesible',
     },
     {
         imageUrl: '/icons/hosting.webp',
-        imageName: 'Dominio VPS',
+        imageName: 'Hosting / VPS',
         nameProduct: 'Dominio VPS',
-        description: 'Configura tu dominio con VPS para un rendimiento óptimo.',
+        description: 'Ofrecemos opciones completas de Hostinger y VPS, esencial para empresas que buscan eficencia y economía.',
     },
     {
-        imageUrl: '/icons/landing_page.webp',
+        imageUrl: '/icons/automate.webp',
         imageName: 'Automatización de Negocios',
         nameProduct: 'Automatización de Negocios',
-        description: 'Simplifica procesos y mejora la eficiencia con nuestras soluciones.',
+        description: 'Simplifica procesos y mejora la eficiencia de tu empresa con nuestras soluciones.',
     },
 ];
 
