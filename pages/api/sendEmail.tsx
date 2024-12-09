@@ -10,20 +10,14 @@ console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY ? "OK" : "No configura
 console.log("EMAIL_USER:", EMAIL_USER ? "OK" : "No configurada");
 console.log("EMAIL_PASS:", EMAIL_PASS ? "OK" : "No configurada");
 
-export const config = {
-  api: {
-    bodyParser: true, // Asegura que el bodyParser esté habilitado
-  },
-};
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("Método de la solicitud:", req.method);
+  console.log("Método de la solicitud (sendEmail):", req.method);
 
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método no permitido" });
   }
 
-  console.log("Body recibido:", JSON.stringify(req.body, null, 2));
+  console.log("Body recibido (sendEmail):", JSON.stringify(req.body, null, 2));
 
   const { token, name, email, empresa, country, subject } = req.body;
 
@@ -46,10 +40,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       }
     );
-    console.log("Respuesta de reCAPTCHA:", JSON.stringify(recaptchaResponse.data, null, 2));
+
+    console.log("Respuesta completa de reCAPTCHA (sendEmail):", recaptchaResponse.data);
 
     if (!recaptchaResponse.data.success) {
-      console.error("Error de reCAPTCHA - códigos:", recaptchaResponse.data["error-codes"]);
+      console.error("Error de reCAPTCHA (sendEmail):", recaptchaResponse.data["error-codes"]);
       return res.status(400).json({
         success: false,
         message: "La validación de reCAPTCHA falló",
@@ -57,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
   } catch (error: any) {
-    console.error("Error al verificar reCAPTCHA:", error.message);
+    console.error("Error al verificar reCAPTCHA (sendEmail):", error.message);
     return res.status(500).json({ success: false, message: "Error al verificar reCAPTCHA" });
   }
 

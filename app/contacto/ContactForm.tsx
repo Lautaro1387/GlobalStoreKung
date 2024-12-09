@@ -61,7 +61,7 @@ export default function ContactForm() {
       } else {
         setMessage({ type: "error", text: result.message || "Error al enviar el correo" });
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error de conexión:", error.message);
       setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
     } finally {
