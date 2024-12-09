@@ -12,7 +12,7 @@ interface Service {
 // Lista de servicios con tipado
 const servicesList: Service[] = [
     {
-        imageUrl: '/icons/landing_page.webp',
+        imageUrl: '/icons/landing.webp',
         imageName: 'Landing Page',
         nameProduct: 'Landing Page',
         description: 'Creamos paginas webs innovadoras y optimizadas para que tus clientes puedan ver tu producto o servicio de manera efectiva, clara y accesible',

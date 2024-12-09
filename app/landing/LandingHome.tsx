@@ -19,8 +19,8 @@ export default function LandingHome() {
                 width={48}
                 height={48}
               />
-              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Creamos tu pagina a tu estilo</h1>
-              <p className="text-center">Tu nos pasas la información para el sitio web y nosotros lo creamos, según tus preferencias (se incluye hosting y certificado SSL)!</p>
+              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Creamos tu pagina web a tu estilo</h1>
+              <p className="text-center font-medium">Nos pasas la información para el sitio web y la creamos según tus preferencias!</p>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4 pt-20">
@@ -31,8 +31,8 @@ export default function LandingHome() {
                 width={48}
                 height={48}
               />
-              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Diseñamos lo que necesites</h1>
-              <p className="text-center">Creamos diseños personalizados para satisfacer las necesidades de nuestros clientes.</p>
+              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Hosting / Dominio</h1>
+              <p className="text-center font-medium">Contamos con servicio para el hosting y dominio de tu pagina web (se incluye certificado SSL)!.</p>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4 pt-20">
@@ -44,7 +44,7 @@ export default function LandingHome() {
                 height={48}
               />
               <h1 className="font-bold mt-4 mb-2 text-xl text-center">Automatizamos tu negocio</h1>
-              <p className="text-center">Tenemos muchas opciones para mejorar y automatizar tu negocio, solamente necesitamos saber de que tipo de negocio tienes y nosotros nos encargamos del resto.</p>
+              <p className="text-center font-medium">Tenemos muchas opciones para mejorar y automatizar tu negocio, ponte en contacto con nosotros para conocer tus necesidad y nos encargamos del resto.</p>
             </div>
           </div>
         </div>
@@ -64,7 +64,9 @@ export default function LandingHome() {
                 height={48}
               />
               <h1 className="font-bold mt-4 mb-2 text-xl text-center">Pasión</h1>
-              <p className="text-center">Tu eliges el logo, los productos y los colores, nosotros te lo colocamos!</p>
+              <p className="text-center font-medium"> Nos apasiona transformar tus ideas en realidades únicas que reflejen tu esencia y visión. Cada detalle, desde los colores hasta el diseño final, está pensado para transmitir lo que te hace especial. Nuestro compromiso es poner creatividad, esfuerzo y dedicación en cada proyecto.
+
+              </p>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4 py-10">
@@ -76,7 +78,7 @@ export default function LandingHome() {
                 height={48}
               />
               <h1 className="font-bold mt-4 mb-2 text-xl text-center">Profesionales</h1>
-              <p className="text-center">Solo nos indicas qué productos necesitas y nosotros lo haremos!</p>
+              <p className="text-center font-medium">Trabajamos con precisión y dedicación. Solo dinos lo que necesitas, y lo haremos realidad de manera eficiente, asegurándonos de superar tus expectativas!</p>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4 py-10">
@@ -88,7 +90,7 @@ export default function LandingHome() {
                 height={48}
               />
               <h1 className="font-bold mt-4 mb-2 text-xl text-center">Asistencia</h1>
-              <p className="text-center">Una vez tengas la página, podrás vender cuantas veces quieras!</p>
+              <p className="text-center font-medium">Estamos contigo cuando más lo necesitas. Ya sea para resolver inconvenientes en tu página web o para brindarte ayuda adicional, puedes contar con nuestro respaldo en todo momento. ¡Tu tranquilidad es nuestra prioridad!</p>
             </div>
           </div>
         </div>
