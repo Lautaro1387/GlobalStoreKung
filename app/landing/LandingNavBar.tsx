@@ -56,7 +56,7 @@ export default function LandingNavBar() {
                           }`
                 }`}
             >
-                <div className="container py-8 mx-auto flex justify-between items-center">
+                <div className="container py-8 md:py-0 md:px-4 mx-auto flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex items-center">
                     <Link href="/">

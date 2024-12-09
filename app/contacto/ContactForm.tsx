@@ -95,7 +95,7 @@ export default function ContactForm() {
       <div className="max-w-md mx-auto pb-20">
         <form
           onSubmit={handleSubmit(onSubmit)} // Llama a `onSubmit` al enviar el formulario
-          className="bg-purple-100 p-8 rounded-lg shadow-md border-4 border-teal-700"
+          className="bg-white p-8 rounded-lg shadow-md border-4 border-teal-700"
           >
           <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">Contáctanos</h2>
           <div className="space-y-4">
@@ -103,7 +103,7 @@ export default function ContactForm() {
               {...register("name", { required: "El nombre es obligatorio" })}
               placeholder="Nombre"
               className={`w-full p-3 border rounded-md focus:outline-none text-gray-700 ${
-                  errors.name ? "border-yellow-500" : "border-purple-300"
+                  errors.name ? "border-yellow-500" : "border-teal-300"
                 }`}
                 />
             {errors.name && <p className="text-yellow-600 text-sm">{errors.name.message}</p>}
@@ -113,7 +113,7 @@ export default function ContactForm() {
               placeholder="Email"
               type="email"
               className={`w-full p-3 border rounded-md focus:outline-none text-gray-700 ${
-                  errors.email ? "border-yellow-500" : "border-purple-300"
+                  errors.email ? "border-yellow-500" : "border-teal-300"
                 }`}
                 />
             {errors.email && <p className="text-yellow-600 text-sm">{errors.email.message}</p>}
@@ -122,7 +122,7 @@ export default function ContactForm() {
               {...register("empresa", { required: "La empresa es obligatoria" })}
               placeholder="Empresa"
               className={`w-full p-3 border rounded-md focus:outline-none text-gray-700 ${
-                  errors.empresa ? "border-yellow-500" : "border-purple-300"
+                  errors.empresa ? "border-yellow-500" : "border-teal-300"
                 }`}
                 />
             {errors.empresa && <p className="text-yellow-600 text-sm">{errors.empresa.message}</p>}
@@ -142,7 +142,7 @@ export default function ContactForm() {
               {...register("subject", { required: "El asunto es obligatorio" })}
               placeholder="Asunto"
               className={`w-full p-3 border rounded-md focus:outline-none resize-none h-32 text-gray-700 ${
-                  errors.subject ? "border-yellow-500" : "border-purple-300"
+                  errors.subject ? "border-yellow-500" : "border-teal-300"
                 }`}
                 />
             {errors.subject && <p className="text-yellow-600 text-sm">{errors.subject.message}</p>}
