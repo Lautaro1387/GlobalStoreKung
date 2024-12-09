@@ -148,7 +148,7 @@ export default function ContactForm() {
             {errors.subject && <p className="text-yellow-600 text-sm">{errors.subject.message}</p>}
 
             <ReCAPTCHA
-              sitekey="6LfFf5IqAAAAAPYQX9GEqL3ks1D0kiRzEJE6nKgw" // Reemplaza con tu Site Key
+              sitekey="6LcCdpMqAAAAAAgRg03GPsNMU31nLsX0RFznjD7p" // Reemplaza con tu Site Key
               onChange={handleRecaptcha} // Llama a `handleRecaptcha` para manejar el token
               />
             {recaptchaError && (

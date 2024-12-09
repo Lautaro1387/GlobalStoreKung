@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 
-const SECRET_KEY = "6LfFf5IqAAAAAIRNIGxi9pCJ0TvOWOuHprisjIhe"; // Reemplaza con tu clave secreta de reCAPTCHA
+const SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY; // Reemplaza con tu clave secreta de reCAPTCHA
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
