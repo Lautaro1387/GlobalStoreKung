@@ -3,6 +3,8 @@ import axios from "axios";
 import nodemailer from "nodemailer"; // Suponiendo que usas nodemailer para enviar correos
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY; // Clave secreta de reCAPTCHA
+console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY);
+
 const EMAIL_USER = process.env.EMAIL_USER; // Tu correo electrónico
 const EMAIL_PASS = process.env.EMAIL_PASS; // Contraseña o token de aplicación
 
@@ -29,6 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       }
     );
+    console.log("reCAPTCHA Response:", recaptchaResponse.data);
 
     if (!recaptchaResponse.data.success) {
       return res.status(400).json({
