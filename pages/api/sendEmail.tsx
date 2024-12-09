@@ -9,7 +9,8 @@ const EMAIL_USER = process.env.EMAIL_USER; // Tu correo electrónico
 const EMAIL_PASS = process.env.EMAIL_PASS; // Contraseña o token de aplicación
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log("Body recibido:", req.body);
+    console.log("Body recibido:", JSON.stringify(req.body, null, 2));
+
 
   // Extrae los datos del cuerpo de la solicitud
   const { token, name, email, empresa, country, subject } = req.body;
@@ -32,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       }
     );
-    console.log("reCAPTCHA Response:", recaptchaResponse.data);
+    console.log("Respuesta de reCAPTCHA:", JSON.stringify(recaptchaResponse.data, null, 2));
 
     if (!recaptchaResponse.data.success) {
       console.error("Error de reCAPTCHA:", recaptchaResponse.data["error-codes"]);
