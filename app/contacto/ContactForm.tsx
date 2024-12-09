@@ -62,8 +62,13 @@ export default function ContactForm() {
         setMessage({ type: "error", text: result.message || "Error al enviar el correo" });
       }
     } catch (error) {
-      console.error("Error de conexión:", error.message);
-      setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
+      if (error instanceof Error) {
+        console.error("Error de conexión:", error.message);
+        setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
+      } else {
+        console.error("Error desconocido:", error);
+        setMessage({ type: "error", text: "Error desconocido al enviar el correo" });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -86,35 +91,39 @@ export default function ContactForm() {
           <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-md border-4 border-teal-700">
             <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">Contáctanos</h2>
             <div className="space-y-4">
-              <input {...register("name", { required: "El nombre es obligatorio" })} placeholder="Nombre" className="input" />
+              <input {...register("name", { required: "El nombre es obligatorio" })} placeholder="Nombre" className="w-full p-2 border rounded-md" />
               {errors.name && <p className="text-red-600">{errors.name.message}</p>}
 
-              <input {...register("email", { required: "El email es obligatorio" })} placeholder="Email" type="email" className="input" />
+              <input {...register("email", { required: "El email es obligatorio" })} placeholder="Email" type="email" className="w-full p-2 border rounded-md" />
               {errors.email && <p className="text-red-600">{errors.email.message}</p>}
 
-              <input {...register("empresa", { required: "La empresa es obligatoria" })} placeholder="Empresa" className="input" />
+              <input {...register("empresa", { required: "La empresa es obligatoria" })} placeholder="Empresa" className="w-full p-2 border rounded-md" />
               {errors.empresa && <p className="text-red-600">{errors.empresa.message}</p>}
 
               <Select options={countries} placeholder="Selecciona un país" onChange={(option) => setValue("country", option?.value || "")} />
               {errors.country && <p className="text-red-600">{errors.country.message}</p>}
 
-              <textarea {...register("subject", { required: "El asunto es obligatorio" })} placeholder="Asunto" className="input h-32" />
+              <textarea {...register("subject", { required: "El asunto es obligatorio" })} placeholder="Asunto" className="w-full p-2 border rounded-md h-32" />
               {errors.subject && <p className="text-red-600">{errors.subject.message}</p>}
 
               <ReCAPTCHA sitekey="6LcCdpMqAAAAAAgRg03GPsNMU31nLsX0RFznjD7p" onChange={handleRecaptcha} />
               {recaptchaError && <p className="text-red-600">Por favor completa el reCAPTCHA</p>}
             </div>
 
-            <button type="submit" disabled={isLoading} className="btn mt-6">
+            <button type="submit" disabled={isLoading} className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700">
               {isLoading ? "Enviando..." : "Enviar"}
             </button>
           </form>
           {message && (
-            <div className="modal">
-              <h3 className={`text-2xl ${message.type === "success" ? "text-green-700" : "text-red-700"}`}>
-                {message.text}
-              </h3>
-              <button onClick={closeModal} className="btn">{message.type === "success" ? "Aceptar" : "Cerrar"}</button>
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className={`text-2xl ${message.type === "success" ? "text-green-700" : "text-red-700"}`}>
+                  {message.text}
+                </h3>
+                <button onClick={closeModal} className="mt-4 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md">
+                  {message.type === "success" ? "Aceptar" : "Cerrar"}
+                </button>
+              </div>
             </div>
           )}
         </div>
