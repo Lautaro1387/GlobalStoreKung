@@ -46,7 +46,7 @@ export default function LandingNavBar() {
     return (
         <>
             <nav
-                className={`font-bold p-1 ${
+                className={`font-bold p-1 bg-teal-700 ${
                     isMobile
                         ? 'relative' // Navbar no queda fijo en dispositivos móviles
                         : `fixed w-full top-0 z-50 transition-colors duration-300 ${
@@ -56,13 +56,13 @@ export default function LandingNavBar() {
                           }`
                 }`}
             >
-                <div className="container mx-auto flex justify-between items-center">
+                <div className="container py-8 mx-auto flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex items-center">
                     <Link href="/">
 
                         <Image
-                            src="/logo_finally.png"
+                            src="/logo_v3.png"
                             alt="Logo"
                             width={300}
                             height={50}
@@ -81,7 +81,7 @@ export default function LandingNavBar() {
                                 Inicio
                             </Link>
                             <Link
-                                href="#servicios"
+                                href="/#servicios"
                                 className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400"
                             >
                                 Servicios
@@ -93,7 +93,7 @@ export default function LandingNavBar() {
                                 Contacto
                             </Link>
                             <Link
-                                href="#faqs"
+                                href="/#faqs"
                                 className="text-black transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-teal-400"
                             >
                                 FAQs
