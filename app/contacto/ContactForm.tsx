@@ -70,6 +70,7 @@ export default function ContactForm() {
   };
 
   const handleRecaptcha = (token: string | null) => {
+    console.log("Token de reCAPTCHA generado:", token);
     setRecaptchaToken(token);
     setRecaptchaError(false);
   };

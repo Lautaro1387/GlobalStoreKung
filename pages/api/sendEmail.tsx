@@ -12,7 +12,7 @@ console.log("EMAIL_PASS:", EMAIL_PASS ? "OK" : "No configurada");
 
 export const config = {
   api: {
-    bodyParser: true, // Asegura que el cuerpo de la solicitud se parsee
+    bodyParser: true, // Asegura que el bodyParser esté habilitado
   },
 };
 
@@ -49,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log("Respuesta de reCAPTCHA:", JSON.stringify(recaptchaResponse.data, null, 2));
 
     if (!recaptchaResponse.data.success) {
-      console.error("Error de reCAPTCHA:", recaptchaResponse.data["error-codes"]);
+      console.error("Error de reCAPTCHA - códigos:", recaptchaResponse.data["error-codes"]);
       return res.status(400).json({
         success: false,
         message: "La validación de reCAPTCHA falló",
