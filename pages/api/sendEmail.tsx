@@ -1,27 +1,40 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import nodemailer from "nodemailer"; // Suponiendo que usas nodemailer para enviar correos
+import nodemailer from "nodemailer";
 
-const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY; // Clave secreta de reCAPTCHA
-console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY);
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
-const EMAIL_USER = process.env.EMAIL_USER; // Tu correo electrónico
-const EMAIL_PASS = process.env.EMAIL_PASS; // Contraseña o token de aplicación
+console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY ? "OK" : "No configurada");
+console.log("EMAIL_USER:", EMAIL_USER ? "OK" : "No configurada");
+console.log("EMAIL_PASS:", EMAIL_PASS ? "OK" : "No configurada");
+
+export const config = {
+  api: {
+    bodyParser: true, // Asegura que el cuerpo de la solicitud se parsee
+  },
+};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log("Body recibido:", JSON.stringify(req.body, null, 2));
+  console.log("Método de la solicitud:", req.method);
 
-
-  // Extrae los datos del cuerpo de la solicitud
-  const { token, name, email, empresa, country, subject } = req.body;
-
-  // Verifica que todos los datos requeridos estén presentes
-  if (!token || !name || !email || !empresa || !country || !subject) {
-    console.error("Datos faltantes:", { token, name, email, empresa, country, subject });
-    return res.status(400).json({ success: false, message: "Faltan datos en el cuerpo de la solicitud" });
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Método no permitido" });
   }
 
-  // 1. Verificar el token de reCAPTCHA
+  console.log("Body recibido:", JSON.stringify(req.body, null, 2));
+
+  const { token, name, email, empresa, country, subject } = req.body;
+
+  if (!token || !name || !email || !empresa || !country || !subject) {
+    console.error("Datos faltantes o inválidos:", { token, name, email, empresa, country, subject });
+    return res.status(400).json({
+      success: false,
+      message: "Faltan datos en el cuerpo de la solicitud o están mal formateados",
+    });
+  }
+
   try {
     const recaptchaResponse = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
@@ -43,15 +56,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         errorCodes: recaptchaResponse.data["error-codes"],
       });
     }
-  } catch (error) {
-    console.error("Error al verificar reCAPTCHA:", error);
+  } catch (error: any) {
+    console.error("Error al verificar reCAPTCHA:", error.message);
     return res.status(500).json({ success: false, message: "Error al verificar reCAPTCHA" });
   }
 
-  // 2. Enviar el correo después de validar el token
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Cambia esto según tu servicio de correo
+      service: "gmail",
       auth: {
         user: EMAIL_USER,
         pass: EMAIL_PASS,
@@ -59,8 +71,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const mailOptions = {
-      from: email, // Dirección del usuario
-      to: EMAIL_USER, // Tu dirección de correo
+      from: EMAIL_USER,
+      to: EMAIL_USER,
       subject: `Nuevo mensaje de ${name} (${empresa})`,
       text: `
         Nombre: ${name}
@@ -74,8 +86,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await transporter.sendMail(mailOptions);
 
     return res.status(200).json({ success: true, message: "Correo enviado con éxito" });
-  } catch (error) {
-    console.error("Error al enviar el correo:", error);
+  } catch (error: any) {
+    console.error("Error al enviar el correo:", error.message);
     return res.status(500).json({ success: false, message: "Error al enviar el correo" });
   }
 }
