@@ -9,17 +9,18 @@ const EMAIL_USER = process.env.EMAIL_USER; // Tu correo electrónico
 const EMAIL_PASS = process.env.EMAIL_PASS; // Contraseña o token de aplicación
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Método no permitido" });
-  }
+  console.log("Body recibido:", req.body);
 
+  // Extrae los datos del cuerpo de la solicitud
   const { token, name, email, empresa, country, subject } = req.body;
 
-  // 1. Verificar el token de reCAPTCHA
-  if (!token) {
-    return res.status(400).json({ success: false, message: "Token de reCAPTCHA faltante" });
+  // Verifica que todos los datos requeridos estén presentes
+  if (!token || !name || !email || !empresa || !country || !subject) {
+    console.error("Datos faltantes:", { token, name, email, empresa, country, subject });
+    return res.status(400).json({ success: false, message: "Faltan datos en el cuerpo de la solicitud" });
   }
 
+  // 1. Verificar el token de reCAPTCHA
   try {
     const recaptchaResponse = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
@@ -34,6 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log("reCAPTCHA Response:", recaptchaResponse.data);
 
     if (!recaptchaResponse.data.success) {
+      console.error("Error de reCAPTCHA:", recaptchaResponse.data["error-codes"]);
       return res.status(400).json({
         success: false,
         message: "La validación de reCAPTCHA falló",
