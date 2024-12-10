@@ -12,19 +12,19 @@ interface Service {
 // Lista de servicios con tipado
 const servicesList: Service[] = [
     {
-        imageUrl: '/icons/landing.webp',
+        imageUrl: '/img/landing.webp',
         imageName: 'Landing Page',
         nameProduct: 'Landing Page',
         description: 'Creamos paginas webs innovadoras y optimizadas para que tus clientes puedan ver tu producto o servicio de manera efectiva, clara y accesible',
     },
     {
-        imageUrl: '/icons/hosting.webp',
+        imageUrl: '/img/hosting.webp',
         imageName: 'Hosting / VPS',
         nameProduct: 'Dominio VPS',
         description: 'Ofrecemos opciones completas de Hostinger y VPS, esencial para empresas que buscan eficencia y economía.',
     },
     {
-        imageUrl: '/icons/automate.webp',
+        imageUrl: '/img/automate.webp',
         imageName: 'Automatización de Negocios',
         nameProduct: 'Automatización de Negocios',
         description: 'Simplifica procesos y mejora la eficiencia de tu empresa con nuestras soluciones.',

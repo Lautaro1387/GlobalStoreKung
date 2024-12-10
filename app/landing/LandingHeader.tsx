@@ -24,7 +24,7 @@ export default function LandingHeader() {
           <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 lg:pb-56">
             <Image
               className="max-w-full p-5 lg:p-10"
-              src="/img_header.svg"
+              src="/img/img_header.svg"
               alt="gif"
               width={480}
               height={400}

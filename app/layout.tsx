@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "By1 Lautaro Illa",
   openGraph: {
     title: "Global Store Kung",
-    description: "By2 Lautaro Illa",
+    description: "By Lautaro Illa",
     url: "https://www.globalstorekung.com", // Cambia esto por tu dominio real
     images: [
       {
