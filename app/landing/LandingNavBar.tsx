@@ -130,7 +130,7 @@ export default function LandingNavBar() {
                             Inicio
                         </Link>
                         <Link
-                            href="#servicios"
+                            href="/#servicios"
                             className="text-black hover:text-neutral-600"
                             onClick={() => setIsOpen(false)}
                         >
@@ -144,7 +144,7 @@ export default function LandingNavBar() {
                             Contacto
                         </Link>
                         <Link
-                            href="#faqs"
+                            href="/#faqs"
                             className="text-black hover:text-neutral-600"
                             onClick={() => setIsOpen(false)}
                         >
