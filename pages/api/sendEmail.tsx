@@ -5,8 +5,8 @@ import nodemailer from "nodemailer";
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-console.log("Clave secreta usada:", process.env.RECAPTCHA_SECRET_KEY);
 
+console.log("Clave secreta usada:", RECAPTCHA_SECRET_KEY);
 console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY ? "OK" : "No configurada");
 console.log("EMAIL_USER:", EMAIL_USER ? "OK" : "No configurada");
 console.log("EMAIL_PASS:", EMAIL_PASS ? "OK" : "No configurada");
@@ -22,6 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { token, name, email, empresa, country, subject } = req.body;
 
+  // Validación de datos requeridos
   if (!token || !name || !email || !empresa || !country || !subject) {
     console.error("Datos faltantes o inválidos:", { token, name, email, empresa, country, subject });
     return res.status(400).json({
@@ -30,6 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
+  // Verificar reCAPTCHA
   try {
     const recaptchaResponse = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
@@ -57,9 +59,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ success: false, message: "Error al verificar reCAPTCHA" });
   }
 
+  // Enviar el correo
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.hostinger.com", // Configuración de Hostinger
+      port: 465, // O 587 si usas TLS
+      secure: true, // SSL
       auth: {
         user: EMAIL_USER,
         pass: EMAIL_PASS,
