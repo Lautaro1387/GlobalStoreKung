@@ -5,6 +5,7 @@ import nodemailer from "nodemailer";
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
+console.log("Clave secreta usada:", process.env.RECAPTCHA_SECRET_KEY);
 
 console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY ? "OK" : "No configurada");
 console.log("EMAIL_USER:", EMAIL_USER ? "OK" : "No configurada");
