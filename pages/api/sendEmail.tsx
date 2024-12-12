@@ -3,8 +3,8 @@ import axios from "axios";
 import nodemailer from "nodemailer";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
-const EMAIL_USER = process.env.EMAIL_USER;
-const EMAIL_PASS = process.env.EMAIL_PASS;
+const EMAIL_USER = process.env.EMAIL_USER; // Dirección de reenvío de Cloudflare (e.g., contacto@globalstorekung.com)
+const EMAIL_PASS = process.env.EMAIL_PASS; // Contraseña del correo en Cloudflare
 
 console.log("Clave secreta usada:", RECAPTCHA_SECRET_KEY);
 console.log("RECAPTCHA_SECRET_KEY:", RECAPTCHA_SECRET_KEY ? "OK" : "No configurada");
@@ -59,12 +59,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ success: false, message: "Error al verificar reCAPTCHA" });
   }
 
-  // Enviar el correo
+  // Enviar el correo utilizando SMTP de Cloudflare Email Routing
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com", // Configuración de Hostinger
-      port: 465, // O 587 si usas TLS
-      secure: true, // SSL
+      host: "smtp.mx.cloudflare.net", // Servidor SMTP de Cloudflare
+      port: 587, // Puerto estándar para STARTTLS
+      secure: false, // STARTTLS en lugar de SSL/TLS
       auth: {
         user: EMAIL_USER,
         pass: EMAIL_PASS,
@@ -72,8 +72,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const mailOptions = {
-      from: EMAIL_USER,
-      to: EMAIL_USER,
+      from: `"Contacto GlobalStore" <${EMAIL_USER}>`, // Remitente del correo
+      to: EMAIL_USER, // Correo al que se redirigen los mensajes
       subject: `Nuevo mensaje de ${name} (${empresa})`,
       text: `
         Nombre: ${name}
