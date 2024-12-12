@@ -21,7 +21,7 @@ const servicesList: Service[] = [
         imageUrl: '/img/hosting.webp',
         imageName: 'Hosting / VPS',
         nameProduct: 'Dominio VPS',
-        description: 'Ofrecemos opciones completas de Hostinger y VPS, esencial para empresas que buscan eficencia y economía.',
+        description: 'Ofrecemos opciones completas de Hosting y VPS, esencial para empresas que buscan eficencia y economía.',
     },
     {
         imageUrl: '/img/automate.webp',

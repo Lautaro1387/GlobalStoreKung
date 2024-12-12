@@ -77,8 +77,8 @@ export default function LandingHome() {
                 width={48}
                 height={48}
               />
-              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Profesionales</h1>
-              <p className="text-center font-medium">Trabajamos con precisión y dedicación. Solo dinos lo que necesitas, y lo haremos realidad de manera eficiente, asegurándonos de superar tus expectativas!</p>
+              <h1 className="font-bold mt-4 mb-2 text-xl text-center">Profesionalismo</h1>
+              <p className="text-center font-medium">Trabajamos con precisión y dedicación. Solo indicanos lo que necesitas, y lo haremos realidad de manera eficiente, asegurándonos de superar tus expectativas!</p>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4 py-10">

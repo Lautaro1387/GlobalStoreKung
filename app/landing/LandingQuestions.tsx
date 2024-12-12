@@ -56,7 +56,7 @@ export default function LandingQuestions(): JSX.Element {
       {questions.map((item, index) => (
   <div
     key={index}
-    className={`w-full ${isActive[index] ? 'bg-gray-100 text-black' : 'bg-gray-100'} transition-colors duration-300 px-2 md:px-20`}
+    className={`w-full ${isActive[index] ? 'bg-gray-100 text-black' : 'bg-white'} transition-colors duration-300 px-2 md:px-20`}
   >
     <div
       className={`flex items-center w-full focus:outline-none cursor-pointer hover:bg-gray-200 ${
