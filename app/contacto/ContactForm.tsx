@@ -23,7 +23,7 @@ const countries: CountryOption[] = [
   { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
   { value: "Uruguay", label: "Uruguay 🇺🇾", emoji: "🇺🇾" },
   { value: "Brazil", label: "Brazil 🇧🇷", emoji: "🇧🇷" },
-  { value: "United States", label: "United States 🇺🇸", emoji: "🇺🇸" },
+  { value: "United States", label: "United States 🇺🇸", emoji: "🇺🇸s" },
   { value: "Chile", label: "Chile 🇨🇱", emoji: "🇨🇱" },
 ];
 
