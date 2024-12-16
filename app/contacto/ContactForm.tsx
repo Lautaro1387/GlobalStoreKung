@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Select, { SingleValue } from "react-select";
+import Select from "react-select";
 import ReCAPTCHA from "react-google-recaptcha";
 import LandingFooter from "../landing/LandingFooter";
 import LandingNavBar from "../landing/LandingNavBar";
@@ -21,10 +21,10 @@ type CountryOption = {
 
 const countries: CountryOption[] = [
   { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
-  { value: "Uruguay", label: "Uruguay", emoji: "🇺🇾" },
-  { value: "Brazil", label: "Brazil", emoji: "🇧🇷" },
-  { value: "United States", label: "United States", emoji: "🇺🇸" },
-  { value: "Chile", label: "Chile", emoji: "🇨🇱" },
+  { value: "Uruguay", label: "Uruguay 🇺🇾", emoji: "🇺🇾" },
+  { value: "Brazil", label: "Brazil 🇧🇷", emoji: "🇧🇷" },
+  { value: "United States", label: "United States 🇺🇸", emoji: "🇺🇸" },
+  { value: "Chile", label: "Chile 🇨🇱", emoji: "🇨🇱" },
 ];
 
 export default function ContactForm() {
@@ -34,9 +34,8 @@ export default function ContactForm() {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
 
+  // Enviar formulario
   const onSubmit = async (data: FormData) => {
-    console.log("Datos enviados al servidor:", { ...data, token: recaptchaToken });
-
     if (!recaptchaToken) {
       setRecaptchaError(true);
       return;
@@ -62,18 +61,14 @@ export default function ContactForm() {
         setMessage({ type: "error", text: result.message || "Error al enviar el correo" });
       }
     } catch (error) {
-      if (error instanceof Error) {
-        console.error("Error de conexión:", error.message);
-        setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
-      } else {
-        console.error("Error desconocido:", error);
-        setMessage({ type: "error", text: "Error desconocido al enviar el correo" });
-      }
+      console.error("Error de conexión:", error);
+      setMessage({ type: "error", text: "Error de conexión al enviar el correo" });
     } finally {
       setIsLoading(false);
     }
   };
 
+  // Manejo de reCAPTCHA
   const handleRecaptcha = (token: string | null) => {
     console.log("Token de reCAPTCHA generado:", token);
     setRecaptchaToken(token);
@@ -86,41 +81,91 @@ export default function ContactForm() {
     <>
       <LandingNavBar />
       <div className="py-10 p-4">
-        <h1 className="text-4xl font-serif text-gray-800 text-center pb-10">Contacta con nuestro equipo</h1>
+        <h1 className="text-4xl font-serif text-gray-800 text-center pb-10">
+          Contacta con nuestro equipo
+        </h1>
         <div className="max-w-md mx-auto pb-20">
-          <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-md border-4 border-teal-700">
-            <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">Contáctanos</h2>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="bg-white p-8 rounded-lg shadow-md border-4 border-teal-700"
+          >
+            <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">
+              Contáctanos
+            </h2>
+
+            {/* Campos del formulario */}
             <div className="space-y-4">
-              <input {...register("name", { required: "El nombre es obligatorio" })} placeholder="Nombre" className="w-full p-2 border rounded-md" />
+              <input
+                {...register("name", { required: "El nombre es obligatorio" })}
+                placeholder="Nombre"
+                className="w-full p-2 border rounded-md"
+              />
               {errors.name && <p className="text-red-600">{errors.name.message}</p>}
 
-              <input {...register("email", { required: "El email es obligatorio" })} placeholder="Email" type="email" className="w-full p-2 border rounded-md" />
+              <input
+                {...register("email", { required: "El email es obligatorio" })}
+                placeholder="Email"
+                type="email"
+                className="w-full p-2 border rounded-md"
+              />
               {errors.email && <p className="text-red-600">{errors.email.message}</p>}
 
-              <input {...register("empresa", { required: "La empresa es obligatoria" })} placeholder="Empresa" className="w-full p-2 border rounded-md" />
+              <input
+                {...register("empresa", { required: "La empresa es obligatoria" })}
+                placeholder="Empresa"
+                className="w-full p-2 border rounded-md"
+              />
               {errors.empresa && <p className="text-red-600">{errors.empresa.message}</p>}
 
-              <Select options={countries} placeholder="Selecciona un país" onChange={(option) => setValue("country", option?.value || "")} />
+              <Select
+                options={countries}
+                placeholder="Selecciona un país"
+                onChange={(option) => setValue("country", option?.value || "")}
+              />
               {errors.country && <p className="text-red-600">{errors.country.message}</p>}
 
-              <textarea {...register("subject", { required: "El asunto es obligatorio" })} placeholder="Asunto" className="w-full p-2 border rounded-md h-32" />
+              <textarea
+                {...register("subject", { required: "El asunto es obligatorio" })}
+                placeholder="Asunto"
+                className="w-full p-2 border rounded-md h-32"
+              />
               {errors.subject && <p className="text-red-600">{errors.subject.message}</p>}
 
-              <ReCAPTCHA sitekey="6LcCdpMqAAAAAAgRg03GPsNMU31nLsX0RFznjD7p" onChange={handleRecaptcha} />
-              {recaptchaError && <p className="text-red-600">Por favor completa el reCAPTCHA</p>}
+              {/* reCAPTCHA */}
+              <ReCAPTCHA
+                sitekey="6LcCdpMqAAAAAAgRg03GPsNMU31nLsX0RFznjD7p" // Inserta tu sitekey aquí
+                onChange={handleRecaptcha}
+              />
+              {recaptchaError && (
+                <p className="text-red-600">Por favor completa el reCAPTCHA</p>
+              )}
             </div>
 
-            <button type="submit" disabled={isLoading} className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700">
+            {/* Botón de enviar */}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700"
+            >
               {isLoading ? "Enviando..." : "Enviar"}
             </button>
           </form>
+
+          {/* Modal de mensaje */}
           {message && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className={`text-2xl ${message.type === "success" ? "text-green-700" : "text-red-700"}`}>
+                <h3
+                  className={`text-2xl ${
+                    message.type === "success" ? "text-green-700" : "text-red-700"
+                  }`}
+                >
                   {message.text}
                 </h3>
-                <button onClick={closeModal} className="mt-4 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md">
+                <button
+                  onClick={closeModal}
+                  className="mt-4 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md"
+                >
                   {message.type === "success" ? "Aceptar" : "Cerrar"}
                 </button>
               </div>
