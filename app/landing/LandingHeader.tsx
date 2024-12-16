@@ -12,7 +12,7 @@ export default function LandingHeader() {
         <div className="flex flex-col md:flex-row h-screen px-5 md:px-20 lg:px-30">
           <div className="w-full md:w-1/2 md:pr-10 lg:pr-20">
             <h1 className="md:text-left lg:text-left px-2 md:px-4 lg:px-10 text-5xl md:text-6xl lg:text-6xl font-bold mb-6">
-              ¡Haz crecer tu negocio de la mejor manera!
+              Haz crecer tu negocio de la mejor manera
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl md:text-left px-4 lg:px-10 pb-8">
               Aplicamos estrategias y soluciones innovadoras para satisfacer las necesidades de tus clientes.
