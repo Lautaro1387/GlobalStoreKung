@@ -4,7 +4,8 @@ import nodemailer from "nodemailer";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const EMAIL_USER = process.env.EMAIL_USER; // Correo verificado en Brevo
-const EMAIL_PASS = process.env.EMAIL_PASS
+const EMAIL_PASS = process.env.EMAIL_PASS;
+const EMAIL_FROM = process.env.EMAIL_FROM;
 const EMAIL_RECEIVER = process.env.EMAIL_RECEIVER; // Correo personal
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -53,7 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const mailOptions = {
-      from: `Global Store Kung <${ EMAIL_USER}>`,
+      from: `Global Store Kung <${ EMAIL_FROM }>`,
       to: EMAIL_RECEIVER,
       subject: `Nuevo mensaje de ${name} (${empresa})`,
       text: `
