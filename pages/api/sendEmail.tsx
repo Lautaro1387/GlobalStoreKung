@@ -57,6 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const mailOptions = {
       from: `Global Store Kung <${ EMAIL_FROM }>`,
       to: EMAIL_RECEIVER,
+      replyTo: email,
       subject: `Nuevo mensaje de ${name} (${empresa})`,
       text: `
         Nombre: ${name}
