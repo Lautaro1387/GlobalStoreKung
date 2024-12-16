@@ -3,7 +3,7 @@ import axios from "axios";
 import nodemailer from "nodemailer";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
-const EMAIL_USER = "lautaro@globalstorekung.com"; // Correo verificado en Brevo
+const EMAIL_USER = process.env.EMAIL_USER; // Correo verificado en Brevo
 const EMAIL_PASS = process.env.EMAIL_PASS
 const EMAIL_RECEIVER = process.env.EMAIL_RECEIVER; // Correo personal
 
