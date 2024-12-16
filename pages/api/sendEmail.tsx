@@ -43,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Configuración del correo usando Brevo SMTP
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp-relay.sendinblue.com",
+      host: "smtp-relay.brevo.com",
       port: 587,
       secure: false, // STARTTLS
       auth: {
