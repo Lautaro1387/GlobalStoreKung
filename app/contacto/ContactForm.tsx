@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Select from "react-select";
+import Select from "react-select"; // Asegúrate de importar react-select correctamente
 import ReCAPTCHA from "react-google-recaptcha";
 import LandingFooter from "../landing/LandingFooter";
 import LandingNavBar from "../landing/LandingNavBar";
+import { countries, CountryOption } from "./CountryList"; // Importamos la lista de países
 
 type FormData = {
   name: string;
@@ -13,27 +14,13 @@ type FormData = {
   subject: string;
 };
 
-type CountryOption = {
-  value: string;
-  label: string;
-  emoji: string;
-};
-
-const countries: CountryOption[] = [
-  { value: "Argentina", label: "Argentina", emoji: "🇦🇷" },
-  { value: "Uruguay", label: "Uruguay 🇺🇾", emoji: "🇺🇾" },
-  { value: "Brazil", label: "Brazil 🇧🇷", emoji: "🇧🇷" },
-  { value: "United States", label: "United States 🇺🇸", emoji: "🇺🇸s" },
-  { value: "Chile", label: "Chile 🇨🇱", emoji: "🇨🇱" },
-];
-
 export default function ContactForm() {
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
   const [message, setMessage] = useState<{ type: string; text: string } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
-  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   // Enviar formulario
   const onSubmit = async (data: FormData) => {
@@ -82,7 +69,7 @@ export default function ContactForm() {
     <>
       <LandingNavBar />
       <div className="py-10 p-4">
-        <h1 className="text-4xl font-serif text-gray-800 text-center pb-10">
+        <h1 className="pt-20 text-4xl font-bold font-serif text-gray-800 text-center pb-10">
           Contacta con nuestro equipo
         </h1>
         <div className="max-w-md mx-auto pb-20">
@@ -119,10 +106,17 @@ export default function ContactForm() {
               {errors.empresa && <p className="text-red-600">{errors.empresa.message}</p>}
 
               <Select
-                options={countries}
-                placeholder="Selecciona un país"
-                onChange={(option) => setValue("country", option?.value || "")}
-              />
+  options={countries}
+  placeholder="Selecciona un país"
+  onChange={(option) => setValue("country", option?.value || "")}
+  formatOptionLabel={(option: CountryOption) => (
+    <div className="flex items-center">
+      <span className={`flag-icon flag-icon-${option.value.toLowerCase()}`} style={{ marginRight: 8 }} />
+      {option.label}
+    </div>
+  )}
+/>
+
               {errors.country && <p className="text-red-600">{errors.country.message}</p>}
 
               <textarea
@@ -171,7 +165,6 @@ export default function ContactForm() {
                 </button>
               </div>
             </div>
-            
           )}
         </div>
       </div>
