@@ -3,8 +3,8 @@ import axios from "axios";
 import nodemailer from "nodemailer";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
-const BREVO_API_KEY = process.env.BREVO_API_KEY; // API Key de Brevo
 const EMAIL_SENDER = process.env.EMAIL_USER; // Correo verificado en Brevo
+const EMAIL_PASS = process.env.EMAIL_PASS
 const EMAIL_RECEIVER = process.env.EMAIL_RECEIVER; // Correo personal
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -48,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       secure: false, // STARTTLS
       auth: {
         user: EMAIL_SENDER,
-        pass: BREVO_API_KEY, // Clave de API de Brevo
+        pass: EMAIL_PASS, // Clave de API de Brevo
       },
     });
 
