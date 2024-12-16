@@ -3,7 +3,7 @@ import axios from "axios";
 import nodemailer from "nodemailer";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
-const EMAIL_SENDER = process.env.EMAIL_USER; // Correo verificado en Brevo
+const EMAIL_USER = "lautaro@globalstorekung.com"; // Correo verificado en Brevo
 const EMAIL_PASS = process.env.EMAIL_PASS
 const EMAIL_RECEIVER = process.env.EMAIL_RECEIVER; // Correo personal
 
@@ -47,13 +47,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       port: 587,
       secure: false, // STARTTLS
       auth: {
-        user: EMAIL_SENDER,
+        user:  EMAIL_USER,
         pass: EMAIL_PASS, // Clave de API de Brevo
       },
     });
 
     const mailOptions = {
-      from: `Global Store Kung <${EMAIL_SENDER}>`,
+      from: `Global Store Kung <${ EMAIL_USER}>`,
       to: EMAIL_RECEIVER,
       subject: `Nuevo mensaje de ${name} (${empresa})`,
       text: `
