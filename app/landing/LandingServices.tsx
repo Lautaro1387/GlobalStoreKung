@@ -14,19 +14,23 @@ interface LandingServicesProps {
 
 const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 p-5'>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 p-10">
             {services.map((service, index) => (
                 <div
                     key={index}
-                    className='bg-white shadow-lg rounded-lg p-5 hover:scale-105 transition-transform duration-300'
+                    className="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 border border-black hover:border-blue-500"
                 >
-                    <img
-                        src={service.imageUrl}
-                        alt={service.imageName}
-                        className='w-full h-40 object-cover rounded'
-                    />
-                    <h2 className='text-2xl font-bold mt-4'>{service.nameProduct}</h2>
-                    <p className='text-gray-600 mt-2'>{service.description}</p>
+                    <div className="relative w-full h-60"> {/* Altura aumentada */}
+                        <img
+                            src={service.imageUrl}
+                            alt={service.imageName}
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                        />
+                    </div>
+                    <div className="p-5">
+                        <h2 className="text-2xl font-bold">{service.nameProduct}</h2>
+                        <p className="text-gray-600 mt-2">{service.description}</p>
+                    </div>
                 </div>
             ))}
         </div>
