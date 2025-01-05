@@ -106,16 +106,16 @@ export default function ContactForm() {
               {errors.empresa && <p className="text-red-600">{errors.empresa.message}</p>}
 
               <Select
-  options={countries}
-  placeholder="Selecciona un país"
-  onChange={(option) => setValue("country", option?.value || "")}
-  formatOptionLabel={(option: CountryOption) => (
-    <div className="flex items-center">
-      <span className={`flag-icon flag-icon-${option.value.toLowerCase()}`} style={{ marginRight: 8 }} />
-      {option.label}
-    </div>
-  )}
-/>
+      options={countries}
+      placeholder="Selecciona un país"
+      onChange={(option) => setValue("country", option?.value || "")}
+      formatOptionLabel={(option: CountryOption) => (
+        <div className="flex items-center">
+          <span className={`flag-icon flag-icon-${option.value.toLowerCase()}`} style={{ marginRight: 8 }} />
+          {option.label}
+        </div>
+      )}
+    />
 
               {errors.country && <p className="text-red-600">{errors.country.message}</p>}
 
