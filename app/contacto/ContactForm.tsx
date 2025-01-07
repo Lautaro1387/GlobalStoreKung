@@ -20,7 +20,6 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
-  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   // Enviar formulario
   const onSubmit = async (data: FormData) => {
