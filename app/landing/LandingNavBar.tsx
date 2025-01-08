@@ -61,7 +61,7 @@ export default function LandingNavBar() {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                src="/img/logo_v3.png"
+                src="/img/logo_v4.png"
                 alt="Logo"
                 width={300}
                 height={50}
