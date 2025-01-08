@@ -20,6 +20,7 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
+  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
   // Enviar formulario
   const onSubmit = async (data: FormData) => {
@@ -127,7 +128,7 @@ export default function ContactForm() {
 
               {/* reCAPTCHA */}
               <ReCAPTCHA
-                sitekey="6Lcz37EqAAAAAMnkGlvykol8WlMFyR-HJmj3_Kma" // Inserta tu sitekey aquí
+                sitekey={SITE_KEY} // Inserta tu sitekey aquí
                 onChange={handleRecaptcha}
               />
               {recaptchaError && (
