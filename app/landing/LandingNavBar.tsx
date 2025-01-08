@@ -108,7 +108,7 @@ export default function LandingNavBar() {
                 className="text-white focus:outline-none px-4"
               >
                 <Image
-                  src={isOpen ? '/icons/cross.svg' : '/icons/hamburger.svg'}
+                  src={isOpen ? '/icons/cross_white.svg' : '/icons/hamburger_white.svg'}
                   alt="menu"
                   width={30}
                   height={30}
