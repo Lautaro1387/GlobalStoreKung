@@ -127,7 +127,7 @@ export default function ContactForm() {
 
               {/* reCAPTCHA */}
               <ReCAPTCHA
-                sitekey="6LcCdpMqAAAAAAgRg03GPsNMU31nLsX0RFznjD7p" // Inserta tu sitekey aquí
+                sitekey="6Lcz37EqAAAAAMnkGlvykol8WlMFyR-HJmj3_Kma" // Inserta tu sitekey aquí
                 onChange={handleRecaptcha}
               />
               {recaptchaError && (
