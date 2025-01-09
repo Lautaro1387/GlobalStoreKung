@@ -97,7 +97,7 @@ export default function LandingQuestions(): JSX.Element {
       <div className="py-10"></div>
       <p className="text-center text-2xl">¿Te quedan consultas?</p>
       <a
-        className="font-bold text-gray-700 text-3xl text-center pb-10 animate-bounce pt-5"
+        className="font-bold text-gray-700 text-3xl text-center pb-10 pt-5"
         href="/contacto"
       >
         Contáctanos

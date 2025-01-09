@@ -67,7 +67,10 @@ export default function ContactForm() {
 
   return (
     <>
+    <div className="bg-teal-600 w-full py-10 text-black">
+
       <LandingNavBar />
+    </div>
       <div className="py-10 p-4">
         <h1 className="pt-20 text-4xl font-bold font-serif text-gray-800 text-center pb-10">
           Contacta con nuestro equipo
