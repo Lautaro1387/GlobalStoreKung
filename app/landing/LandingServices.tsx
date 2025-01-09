@@ -70,7 +70,7 @@ const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
                             onClick={closeModal}
                             className="mt-6 bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition-colors"
                         >
-                            Contactanós
+                            Contactanos
                         </button>
                     </div>
                 </div>
