@@ -26,7 +26,7 @@ export default function LandingHeader() {
           Haz crecer tu negocio de la mejor manera
         </h1>
         <p className="text-lg md:text-2xl mb-6">
-          Aplicamos estrategias y soluciones innovadoras para satisfacer las necesidades de tus clientes.
+          Aplicamos estrategias y soluciones innovadoras para satisfacer las necesidades de tus clientes
         </p>
         <a
           href="/contacto"
