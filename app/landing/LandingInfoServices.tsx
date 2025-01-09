@@ -7,6 +7,7 @@ interface Service {
     imageName: string;
     nameProduct: string;
     description: string;
+    moreInfo: string; // ← Agregamos la propiedad faltante
 }
 
 // Lista de servicios con tipado
@@ -16,18 +17,21 @@ const servicesList: Service[] = [
         imageName: 'Landing Page',
         nameProduct: 'Landing Page',
         description: 'Creamos paginas webs innovadoras y optimizadas para que tus clientes puedan ver tu producto o servicio de manera efectiva, clara y accesible',
+        moreInfo: 'Más detalles sobre nuestra creación de páginas web y cómo te ayuda a destacar tu servicio.', // ← Nueva propiedad
     },
     {
         imageUrl: '/img/hosting.webp',
         imageName: 'Hosting / VPS',
         nameProduct: 'Dominio VPS',
-        description: 'Ofrecemos opciones completas de Hosting y VPS, esencial para empresas que buscan eficencia y economía.',
+        description: 'Ofrecemos opciones completas de Hosting y VPS, esencial para empresas que buscan eficiencia y economía.',
+        moreInfo: 'Explicación más extensa de planes de Hosting/VPS y servicios relacionados.', // ← Nueva propiedad
     },
     {
         imageUrl: '/img/automate.webp',
         imageName: 'Automatización de Negocios',
         nameProduct: 'Automatización de Negocios',
         description: 'Simplifica procesos y mejora la eficiencia de tu empresa con nuestras soluciones.',
+        moreInfo: 'Descripción detallada de cómo automatizamos tus procesos y los beneficios para tu negocio.', // ← Nueva propiedad
     },
 ];
 
