@@ -3,42 +3,42 @@ import Products from './Products'; // Ajusta la ruta según sea necesario
 
 const productList = [
     {
-        imageUrl: '/img_product_1.png',
+        imageUrl: '/img/img_product_1.png',
         imageName: 'Product 1',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 1',
         cost: 50,
     },
     {
-        imageUrl: '/img_product_2.png',
+        imageUrl: '/img/img_product_2.png',
         imageName: 'Product 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
         cost: 80,
     },
     {
-        imageUrl: '/img_product_3.png',
+        imageUrl: '/img/img_product_3.png',
         imageName: 'Product 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
         cost: 80,
     },
     {
-        imageUrl: '/img_product_4.png',
+        imageUrl: '/img/img_product_4.png',
         imageName: 'Product 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
         cost: 80,
     },
     {
-        imageUrl: '/img_product_1.png',
+        imageUrl: '/img/img_product_1.png',
         imageName: 'Product 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
         cost: 80,
     },
     {
-        imageUrl: '/img_product_2.png',
+        imageUrl: '/img/img_product_2.png',
         imageName: 'Product 2',
         nameProduct: 'Pantalón Skinny',
         description: 'Descripción del Producto 2',
