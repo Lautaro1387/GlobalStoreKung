@@ -32,16 +32,16 @@ export default function NavBar() {
             placeholder="Buscar..."
             className="px-10 py-2 rounded-lg"
             />
-            <Link rel="noopener" href="/demo_1/cart">
+            <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/search_white.svg" alt='search' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
-            <Link rel="noopener" href="/demo_1/cart">
+            <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/account_white.svg" alt='account' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
-            <Link rel="noopener" href="/demo_1/cart">
+            <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/cart_white.svg" alt='cart' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
-            <Link rel="noopener" href="/demo_1/cart">
+            <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/config_white.svg" alt='config' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
         </div>

@@ -3,9 +3,13 @@ import React from "react";
 import Cart from "../components/Cart";
 import Login from "../components/Login";
 import ProductPage from "@components/ProductPage";
+import NavBar from "@components/NavBar";
+
 
 const Demo2Page: React.FC = () => {
   return (
+    <>
+    <NavBar></NavBar>
     <div className="min-h-screen bg-gray-100 py-10">
       <header className="text-center mb-10">
         <h1 className="text-4xl font-extrabold text-gray-800">
@@ -34,6 +38,7 @@ const Demo2Page: React.FC = () => {
         <ProductPage/>
       </main>
     </div>
+    </>
   );
 };
 

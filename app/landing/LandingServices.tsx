@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Definición del tipo para las propiedades
 interface Service {
@@ -61,7 +62,6 @@ const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
               onClick={closeModal}
               className="absolute top-3 right-3"
             >
-              {/* Reemplazamos el <img> del ícono por <Image> (opcional pero recomendable) */}
               <Image
                 src="/icons/cross_black.svg"
                 alt="Cerrar"
@@ -71,17 +71,15 @@ const LandingServices: React.FC<LandingServicesProps> = ({ services }) => {
             </button>
             <div className="mb-4">
               <h2 className="text-2xl font-bold mb-2">{selectedService.nameProduct}</h2>
-              <p className="text-gray-600">{selectedService.description}</p>
+              <p className="text-gray-600">{selectedService.moreInfo}</p>
             </div>
-            <div className="text-gray-800">
-              <p>{selectedService.moreInfo}</p>
-            </div>
-            <button
-              onClick={closeModal}
-              className="mt-6 bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition-colors"
-            >
-              Contactanos
-            </button>
+            <Link href="/contacto">
+                <button
+                className="mt-6 bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition-colors"
+                >
+                Contactanos
+                </button>
+            </Link>
           </div>
         </div>
       )}
