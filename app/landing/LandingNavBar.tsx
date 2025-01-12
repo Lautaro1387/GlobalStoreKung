@@ -40,6 +40,20 @@ export default function LandingNavBar() {
     };
   }, [isMobile]);
 
+  useEffect(() => {
+    // Desactivar el scroll cuando el menú está abierto
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Cleanup: remover la clase cuando el componente se desmonte
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -51,7 +65,7 @@ export default function LandingNavBar() {
           fixed w-full top-0 z-50 transition-colors duration-300 
           ${
             isScrolled
-              ? 'bg-teal-700 bg-opacity-60 backdrop-blur-md'
+              ? 'bg-teal-700/75 backdrop-blur-md'
               : 'bg-transparent'
           }
           `}
@@ -104,7 +118,12 @@ export default function LandingNavBar() {
           {isMobile && (
             <div className="md:hidden relative z-50">
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                  scrollToTop(); // Lleva la página al inicio
+                  setTimeout(() => {
+                    setIsOpen(!isOpen); // Abre o cierra el menú después del scroll
+                  }, 700); // Ajusta este tiempo si es necesario
+                }}
                 className="text-white focus:outline-none px-4"
               >
                 <Image
