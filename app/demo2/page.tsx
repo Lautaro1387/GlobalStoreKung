@@ -1,7 +1,6 @@
 // /app/demo2/page.tsx
 import React from "react";
 import Cart from "../components/Cart";
-import Login from "../components/Login";
 import ProductPage from "@components/ProductPage";
 import NavBar from "@components/NavBar";
 
@@ -20,13 +19,6 @@ const Demo2Page: React.FC = () => {
         </p>
       </header>
       <main className="container mx-auto px-4 space-y-10">
-        {/* Sección de Login */}
-        <section className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Iniciar Sesión
-          </h2>
-          <Login />
-        </section>
 
         {/* Sección del Carrito */}
         <section className="bg-white rounded-lg shadow-lg p-6">

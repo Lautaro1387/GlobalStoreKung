@@ -1,7 +1,10 @@
 "use client";
 
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm, SubmitHandler  } from "react-hook-form";
+
 
 interface FormData {
     email: string;
@@ -15,6 +18,9 @@ export default function Login() {
     formState: { errors },
 } = useForm<FormData>();
 
+const router = useRouter()
+const [error, setError] = useState<string | null>(null)
+
 const onSubmit: SubmitHandler<FormData> = (async (data) => {
   console.log(data);
   const res = await signIn('credentials', { // Se pueden usar varios metodos de Login, Google, Github, etc.
@@ -26,11 +32,10 @@ const onSubmit: SubmitHandler<FormData> = (async (data) => {
     alert("No se pudo obtener respuesta de signIn");
     return;
   }
-  
   if (res.error) {
-    alert(res.error);
+    setError(res.error)
   } else {
-    console.log('enviando a /dashboard')
+    router.push('/demo2/dashboard')
   }
   console.log(res)
 });
@@ -41,6 +46,9 @@ const onSubmit: SubmitHandler<FormData> = (async (data) => {
         onSubmit={handleSubmit(onSubmit)}
         className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md"
       >
+        {error && (
+          <p className="bg-red-500 text-lg p-3 text-white rounded">{error}</p>
+        )}
         <h2 className="text-2xl font-bold text-white text-center mb-6">Login</h2>
 
 

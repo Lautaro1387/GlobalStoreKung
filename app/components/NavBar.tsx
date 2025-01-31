@@ -19,10 +19,10 @@ export default function NavBar() {
         </div>
         {/* Botones en el centro */}
         <div className="flex space-x-9 p-4 font-bold text-lg">
-          <Link href="/" className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Inicio</Link>
-          <Link href="/categorias" className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Categorias</Link>
-          <Link href="/productos"className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Productos</Link>
-          <Link href="/preguntas frecuentes"className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Preguntas frecuentes</Link>
+          <Link href="/demo2" className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Inicio</Link>
+          <Link href="/demo2/categorias" className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Categorias</Link>
+          <Link href="/demo2/productos"className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Productos</Link>
+          <Link href="/demo2/preguntas-frecuentes"className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400">Preguntas frecuentes</Link>
         </div>
 
         {/* Barra de búsqueda e iconos */}
@@ -35,13 +35,16 @@ export default function NavBar() {
             <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/search_white.svg" alt='search' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
-            <Link rel="noopener" href="/demo2/cart">
+            <Link rel="noopener" href="/demo2/auth/register">
+                <Image src="/icons/account_white.svg" alt='account' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
+            </Link>
+            <Link rel="noopener" href="/demo2/auth/login">
                 <Image src="/icons/account_white.svg" alt='account' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
             <Link rel="noopener" href="/demo2/cart">
                 <Image src="/icons/cart_white.svg" alt='cart' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
-            <Link rel="noopener" href="/demo2/cart">
+            <Link rel="noopener" href="/demo2/conf">
                 <Image src="/icons/config_white.svg" alt='config' width={35} height={40} className='transition-transform duration-300 ease-in-out hover:-translate-y-2'></Image>
             </Link>
         </div>
