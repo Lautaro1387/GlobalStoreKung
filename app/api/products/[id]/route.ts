@@ -3,15 +3,14 @@
 import { NextResponse } from "next/server";
 import prisma from "@/libs/db";
 
-// Definimos un tipo para el contexto que Next nos pasa como segundo argumento
-interface RouteContext {
-  params: {
-    id: string;
-  };
-}
-
-// GET - Obtener producto por ID
-export async function GET(request: Request, { params }: RouteContext) {
+/**
+ * GET - Obtener producto por ID
+ */
+export async function GET(
+  request: Request,
+  context: { params: { id: string } }
+) {
+  const { params } = context; // Extraemos "params" de "context"
   try {
     const product = await prisma.product.findUnique({
       where: { product_id: Number(params.id) },
@@ -31,8 +30,14 @@ export async function GET(request: Request, { params }: RouteContext) {
   }
 }
 
-// PATCH - Actualizar producto por ID
-export async function PATCH(request: Request, { params }: RouteContext) {
+/**
+ * PATCH - Actualizar producto por ID
+ */
+export async function PATCH(
+  request: Request,
+  context: { params: { id: string } }
+) {
+  const { params } = context;
   try {
     const { name, description, price, stock, imageUrl } = await request.json();
 
@@ -54,16 +59,21 @@ export async function PATCH(request: Request, { params }: RouteContext) {
   }
 }
 
-// DELETE - Eliminar producto por ID
-export async function DELETE(request: Request, { params }: RouteContext) {
+/**
+ * DELETE - Eliminar producto por ID
+ */
+export async function DELETE(
+  request: Request,
+  context: { params: { id: string } }
+) {
+  const { params } = context;
   try {
     await prisma.product.delete({
       where: { product_id: Number(params.id) },
     });
     return NextResponse.json({ message: "Producto eliminado" });
   } catch (err) {
-    console.error("Error al eliminar producto:");
-    console.log("ERROR DETAILS:", err);
+    console.error("Error al eliminar producto:", err);
     return NextResponse.json(
       { error: "Error eliminando producto" },
       { status: 500 }
