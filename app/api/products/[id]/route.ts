@@ -1,19 +1,25 @@
 // app/api/products/[id]/route.ts
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/libs/db";
 
 /**
  * GET - Obtener producto por ID
  */
-export async function GET(
-  request: Request,
-  context: { params: { id: string } }
-) {
-  const { params } = context; // Extraemos "params" de "context"
+export async function GET(request: NextRequest) {
   try {
+    // 1. Extraemos el pathname, p.ej: "/api/products/123"
+    const path = request.nextUrl.pathname;
+    // 2. Dividimos por "/" y tomamos la última parte, p.ej: "123"
+    const segments = path.split("/");
+    const id = segments[segments.length - 1]; 
+
+    // Convertimos a número
+    const productId = Number(id);
+
+    // 3. Buscamos el producto
     const product = await prisma.product.findUnique({
-      where: { product_id: Number(params.id) },
+      where: { product_id: productId },
     });
 
     if (!product) {
@@ -33,23 +39,19 @@ export async function GET(
 /**
  * PATCH - Actualizar producto por ID
  */
-export async function PATCH(
-  request: Request,
-  context: { params: { id: string } }
-) {
-  const { params } = context;
+export async function PATCH(request: NextRequest) {
   try {
+    const path = request.nextUrl.pathname;
+    const segments = path.split("/");
+    const id = segments[segments.length - 1]; 
+    const productId = Number(id);
+
+    // Obtenemos el body
     const { name, description, price, stock, imageUrl } = await request.json();
 
     const updatedProduct = await prisma.product.update({
-      where: { product_id: Number(params.id) },
-      data: {
-        name,
-        description,
-        price,
-        stock,
-        imageUrl,
-      },
+      where: { product_id: productId },
+      data: { name, description, price, stock, imageUrl },
     });
 
     return NextResponse.json(updatedProduct);
@@ -62,14 +64,15 @@ export async function PATCH(
 /**
  * DELETE - Eliminar producto por ID
  */
-export async function DELETE(
-  request: Request,
-  context: { params: { id: string } }
-) {
-  const { params } = context;
+export async function DELETE(request: NextRequest) {
   try {
+    const path = request.nextUrl.pathname;
+    const segments = path.split("/");
+    const id = segments[segments.length - 1]; 
+    const productId = Number(id);
+
     await prisma.product.delete({
-      where: { product_id: Number(params.id) },
+      where: { product_id: productId },
     });
     return NextResponse.json({ message: "Producto eliminado" });
   } catch (err) {
