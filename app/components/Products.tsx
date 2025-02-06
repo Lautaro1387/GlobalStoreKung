@@ -1,37 +1,38 @@
-import React from "react";
-import Image from "next/image";
+// app/components/Products.tsx
+"use client";
 import Link from "next/link";
 
-
 type Product = {
-    imageUrl: string,
-    imageName: string,
-    nameProduct: string,
-    description: string,
-    cost: number,
+  product_id: number;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  imageUrl: string;
+};
+
+interface ProductsProps {
+  products: Product[];
 }
 
-const Products: React.FC<{ products: Product[] }> = ({ products }) => {
-    return (
-        <>
-            <div className="flex flex-wrap justify-center items-center p-10 px-60">
-                {products.map((product, index) => (
-                    <div key={index} className="w-1/4 p-1 pb-1 mb-4 md:w-1/3">
-                        <Link href="/product_info">
-                        <div className="border-2 border-gray-500 rounded-lg hover:border-gray-900 transition duration-300">
-                            <Image  src={product.imageUrl} alt={product.imageName} width={250} height={100}></Image>
-                            <h3 className="px-2 py-1">{product.nameProduct}</h3>
-                            <div>
-                                <h4 className="px-2 pb-1">$ {product.cost} </h4>                           
-                            </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-            </div>
-        `
-        </>
-    )
+const Products: React.FC<ProductsProps> = ({ products }) => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {products.map((product) => (
+        <Link href={`/demo2/productos/${product.product_id}`} key={product.product_id}>
+          <div className="border p-4 rounded shadow transition transform hover:scale-105 cursor-pointer">
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className="w-full h-48 object-cover"
+            />
+            <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
+            <p className="text-green-600 font-semibold">${product.price.toFixed(2)}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-}
-export default Products
+export default Products;

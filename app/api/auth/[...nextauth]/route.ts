@@ -13,40 +13,37 @@ export const authOptions: AuthOptions = {
         email: { label: "Email", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password", placeholder: "*****" },
       },
-      // Deja que NextAuth infiera el tipo; no pongas : Promise<...>
-      // @ts-ignore
-      async authorize(credentials) {
-        // Verificamos que credentials exista
-        if (!credentials?.email || !credentials.password) {
-          return null;
+      async authorize(credentials, req) {
+        console.log("authorize() called with credentials:", credentials);
+        if (!credentials || !credentials.email || !credentials.password) {
+          console.log("Faltan credenciales");
+          throw new Error("Faltan credenciales");
         }
-
-        // Buscamos en la DB (ajusta campos a tu modelo real de Prisma)
-        const userFound = await db.user.findUnique({
-          where: { email: credentials.email },
-        });
-
+        const { email, password } = credentials as { email: string; password: string };
+      
+        const userFound = await db.user.findUnique({ where: { email } });
         if (!userFound) {
-          // NextAuth capturará este error y lo tratará como error de credenciales
-          throw new Error("No user found");
+          console.log("No se encontró usuario con email:", email);
+          throw new Error("No se encontró usuario");
         }
-
-        // Comparar la contraseña
-        const matchPassword = await bcrypt.compare(
-          credentials.password,
-          userFound.password
-        );
+      
+        console.log("Usuario encontrado:", { email: userFound.email, hash: userFound.password });
+        const matchPassword = await bcrypt.compare(password, userFound.password);
+        console.log("Comparación de contraseña (resultado):", matchPassword);
         if (!matchPassword) {
-          throw new Error("Wrong password");
+          console.log("Contraseña incorrecta para email:", email);
+          throw new Error("Contraseña incorrecta");
         }
-
-        // Retornamos el objeto "user" con las claves que NextAuth espera
+      
+        console.log("Autenticación exitosa para:", email);
         return {
-          id: userFound.user_id,             // O userFound.user_id.toString() si prefieres string
+          id: userFound.user_id.toString(),
           name: userFound.username,
           email: userFound.email,
         };
-      },
+      }
+      
+      
     }),
   ],
   pages: {
@@ -58,5 +55,4 @@ export const authOptions: AuthOptions = {
 console.log(">>>>> I AM INSIDE THE [...nextauth]/route.ts FILE <<<<<");
 
 const handler = NextAuth(authOptions);
-
 export { handler as GET, handler as POST };

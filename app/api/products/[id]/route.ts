@@ -58,8 +58,10 @@ export async function DELETE(
       where: { product_id: Number(params.id) },
     });
     return NextResponse.json({ message: 'Producto eliminado' });
-  } catch (error) {
-    console.error('Error al eliminar producto:', error);
-    return NextResponse.json({ error: 'Error' }, { status: 500 });
+  } catch (err: any) {
+    console.error('Error al crear producto');   // sin el objeto como segundo argumento
+    console.log('ERROR DETAILS:', err);         // haz un log separado
+    return NextResponse.json({ error: 'Error creando producto' }, { status: 500 });
   }
+  
 }
