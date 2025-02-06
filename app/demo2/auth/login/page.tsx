@@ -22,11 +22,16 @@ export default function Login() {
 
   // Obtenemos el token CSRF al montar el componente
   useEffect(() => {
-    getCsrfToken().then((token) => {
+    async function fetchToken() {
+      const token = await getCsrfToken();
+      console.log("CSRF Token obtenido:", token);
       if (token) {
         setCsrfToken(token);
+      } else {
+        console.warn("No se obtuvo token CSRF");
       }
-    });
+    }
+    fetchToken();
   }, []);
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -36,7 +41,6 @@ export default function Login() {
       password: data.password,
       csrfToken,
       redirect: false,
-      callbackUrl: "/demo2/",
     });
     console.log("Respuesta de signIn:", res);
 
