@@ -1,10 +1,11 @@
-// app/api/auth/[...nextauth]/route.ts
-import NextAuth, { AuthOptions } from "next-auth";
+// lib/authOptions.ts
+import { AuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import db from "@/libs/db";
 import bcrypt from "bcrypt";
 
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -50,8 +51,3 @@ const authOptions: AuthOptions = {
   },
   debug: true,
 };
-
-console.log(">>>>> I AM INSIDE THE [...nextauth]/route.ts FILE <<<<<");
-
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
