@@ -1,18 +1,16 @@
 // app/demo2/productos/[productID]/page.tsx
-import prisma from "@/libs/db"; // Asegúrate de que esta ruta sea la correcta de tu cliente Prisma
+import prisma from "@/libs/db";
 import Image from "next/image";
 import AddToCartButton from "../../../components/AddToCartButton";
 
-interface IParams {
-  params: {
-    productId: string;
-  };
-}
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: { productID: string };
+}) {
+  // Convierto a número (si viene como string).
+  const productId = Number(params.productID);
 
-export default async function ProductDetailPage({ params }: IParams) {
-  const productId = Number(params.productId);
-
-  // Buscar el producto en la base de datos
   const product = await prisma.product.findUnique({
     where: { product_id: productId },
   });
@@ -47,7 +45,9 @@ export default async function ProductDetailPage({ params }: IParams) {
         <div className="text-4xl font-bold text-green-600">${product.price}</div>
         
         {/* Stock */}
-        <div className="text-sm text-gray-500">Stock disponible: {product.stock}</div>
+        <div className="text-sm text-gray-500">
+          Stock disponible: {product.stock}
+        </div>
         
         {/* Botón de compra */}
         <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 text-lg rounded-lg">
