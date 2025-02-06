@@ -14,7 +14,7 @@ export default function Cart() {
     <div className="p-4 bg-white rounded shadow-md">
       <h2 className="text-xl font-bold mb-4">Tu Carrito</h2>
       {cart.length === 0 ? (
-        <p>El carrito está vacío</p>
+        <p>El carrito se encuentra vacío</p>
       ) : (
         <ul>
           {cart.map((item) => (
