@@ -1,13 +1,12 @@
 // app/demo2/page.tsx
-import ProductPage from "../components/ProductPage";
+
+import prisma from "@/libs/db";
 import CarouselComponent from "@components/Carousel";
+import ProductPage from "../components/ProductPage";
 
 export default async function Demo2Page() {
-  // Fetch de los productos
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/products`, {
-    cache: 'no-store',
-  });
-  const products = await res.json();
+  // Consulta directa a tu base de datos en vez de fetch
+  const products = await prisma.product.findMany();
 
   // Array de imágenes para el carrusel
   const carouselImages = [
@@ -20,11 +19,11 @@ export default async function Demo2Page() {
     <>
       <CarouselComponent
         images={carouselImages}
-        infiniteLoop={true}
-        emulateTouch={true}
+        infiniteLoop
+        emulateTouch
         showThumbs={false}
         showStatus={false}
-        autoPlay={true}
+        autoPlay
         carouselWidth={1200}
       />
       <div className="min-h-screen bg-gray-100 py-10">
@@ -37,7 +36,6 @@ export default async function Demo2Page() {
           </p>
         </header>
         <main className="container mx-auto px-4 space-y-10">
-          {/* Carrito */}
           {/* Página de productos */}
           <ProductPage products={products} />
         </main>
