@@ -32,22 +32,10 @@ export default function NavBar() {
             Inicio
           </Link>
           <Link
-            href="/demo2/categorias"
-            className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400"
-          >
-            Categorias
-          </Link>
-          <Link
             href="/demo2/productos"
             className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400"
           >
             Productos
-          </Link>
-          <Link
-            href="/demo2/preguntas-frecuentes"
-            className="text-white transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:text-teal-400"
-          >
-            Preguntas frecuentes
           </Link>
         </div>
         {/* Sección de iconos */}

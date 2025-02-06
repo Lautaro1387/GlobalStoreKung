@@ -42,7 +42,7 @@ const authOptions: AuthOptions = {
           name: userFound.username,
           email: userFound.email,
         };
-      }
+      },
     }),
   ],
   pages: {
